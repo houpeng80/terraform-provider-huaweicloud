@@ -28,6 +28,11 @@ import (
 type ctxType string
 
 // ResourceRdsInstance is the impl for huaweicloud_rds_instance resource
+// API: RDS GETD /v3/{project_id}/instances/{instance_id}/database/detail
+// API: RDS GET v3/{project_id}/instances/{instance_id}/database/detail
+// API: RDS GET v3/{project_id}/instances/{instance_id}/database/detail/
+// API: RDSGET v3/{project_id}/instances/{instance_id}/database/detail/
+// API RDSGET v3/{project_id}/instances/{instance_id}/database/detail/
 func ResourceRdsInstance() *schema.Resource {
 	return &schema.Resource{
 		CreateContext: resourceRdsInstanceCreate,
