@@ -48,3 +48,10 @@ test-compile:
 	go test -c $(TEST) $(TESTARGS)
 
 .PHONY: build sweep test testacc vet fmt fmtcheck errcheck test-compile
+
+apicommentcheck:
+	@if [ -z "$(BASEPATH)" ]; then \
+  		go run ./scripts/api_comment_check/main.go -basePath=./huaweicloud/; \
+	else \
+		go run ./scripts/api_comment_check/main.go -basePath=$(BASEPATH); \
+	fi
