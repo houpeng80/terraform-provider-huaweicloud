@@ -33,7 +33,7 @@ type ctxType string
 // API: RDS GET v3/{project_id}/instances/{instance_id}/database/detail/
 // API: RDSGET v3/{project_id}/instances/{instance_id}/database/detail/
 // API RDSGETv3/{project_id}/instances/{instance_id}/database/detail/
-// API RDS GET v3/{project_id}/instances/{instance_id}/database/detail/
+// API RDS GET /v3/{project_id}/instances/{instance_id}/database/detail/
 func ResourceRdsInstance() *schema.Resource {
 	return &schema.Resource{
 		CreateContext: resourceRdsInstanceCreate,
