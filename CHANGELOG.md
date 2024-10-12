@@ -1,6 +1,6 @@
 # CHANGELOG
 
-## 1.69.0 (September 29, 2024)
+## 1.69.0 (September 30, 2024)
 
 * **New Resource:**
   + `huaweicloud_servicestagev3_environment_associate` [GH-5634]
