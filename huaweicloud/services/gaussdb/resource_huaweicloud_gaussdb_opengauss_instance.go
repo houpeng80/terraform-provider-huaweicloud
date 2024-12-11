@@ -28,10 +28,12 @@ const (
 // @API GaussDB GET /v3/{project_id}/instances
 // @API GaussDB POST /v3/{project_id}/instances
 // @API GaussDB GET /v3/{project_id}/jobs
+// @API GaussDB POST /v3/{project_id}/instances/{instance_id}/tags
 // @API GaussDB PUT /v3/{project_id}/instances/{instance_id}/name
 // @API GaussDB POST /v3/{project_id}/instances/{instance_id}/password
 // @API GaussDB POST /v3/{project_id}/instances/{instance_id}/action
 // @API GaussDB PUT /v3/{project_id}/instances/{instance_id}/backups/policy
+// @API GaussDB DELETE /v3/{project_id}/instances/{instance_id}/tag
 // @API GaussDB DELETE /v3/{project_id}/instances/{instance_id}
 // @API BSS GET /v2/orders/customer-orders/details/{order_id}
 // @API BSS POST /v2/orders/suscriptions/resources/query
@@ -245,6 +247,7 @@ func ResourceOpenGaussInstance() *schema.Resource {
 					},
 				},
 			},
+			"tags": common.TagsSchema(),
 			"force_import": {
 				Type:     schema.TypeBool,
 				Optional: true,
@@ -420,6 +423,15 @@ func resourceOpenGaussInstanceCreate(ctx context.Context, d *schema.ResourceData
 	_, err = stateConf.WaitForStateContext(ctx)
 	if err != nil {
 		return diag.Errorf("error waiting for instance (%s) to become ready: %s", d.Id(), err)
+	}
+
+	// set tags
+	tagRaw := d.Get("tags").(map[string]interface{})
+	if len(tagRaw) > 0 {
+		err = addInstanceTags(d, client, d.Get("tags").(map[string]interface{}))
+		if err != nil {
+			return diag.Errorf("error setting tags for GaussDB OpenGauss instance %s: %s", d.Id(), err)
+		}
 	}
 
 	// This is a workaround to avoid db connection issue
@@ -611,6 +623,7 @@ func resourceOpenGaussInstanceRead(_ context.Context, d *schema.ResourceData, me
 		setOpenGaussNodesAndRelatedNumbers(d, instance, &dnNum),
 		d.Set("volume", flattenGaussDBOpenGaussResponseBodyVolume(instance, dnNum)),
 		setOpenGaussPrivateIpsAndEndpoints(d, instance),
+		d.Set("tags", flattenGaussDBOpenGaussInstanceTags(instance)),
 	)
 
 	return diag.FromErr(mErr.ErrorOrNil())
@@ -725,6 +738,22 @@ func setOpenGaussPrivateIpsAndEndpoints(d *schema.ResourceData, instance interfa
 	return mErr
 }
 
+func flattenGaussDBOpenGaussInstanceTags(resp interface{}) map[string]interface{} {
+	if resp == nil {
+		return nil
+	}
+
+	curJson := utils.PathSearch("tags", resp, make([]interface{}, 0))
+	curArray := curJson.([]interface{})
+	rst := make(map[string]interface{})
+	for _, v := range curArray {
+		key := utils.PathSearch("key", v, "").(string)
+		value := utils.PathSearch("value", v, "").(string)
+		rst[key] = value
+	}
+	return rst
+}
+
 func resourceOpenGaussInstanceUpdate(ctx context.Context, d *schema.ResourceData, meta interface{}) diag.Diagnostics {
 	cfg := meta.(*config.Config)
 	region := cfg.GetRegion(d)
@@ -790,6 +819,13 @@ func resourceOpenGaussInstanceUpdate(ctx context.Context, d *schema.ResourceData
 		}
 		if err = cfg.MigrateEnterpriseProject(ctx, d, migrateOpts); err != nil {
 			return diag.FromErr(err)
+		}
+	}
+
+	if d.HasChange("tags") {
+		err = updateInstanceTags(d, client)
+		if err != nil {
+			return diag.Errorf("error updating tags of GaussDB OpenGauss instance %q: %s", d.Id(), err)
 		}
 	}
 
@@ -1044,6 +1080,96 @@ func buildUpdateInstanceBackupStrategyBodyParams(d *schema.ResourceData) map[str
 		"backup_policy": params,
 	}
 	return bodyParams
+}
+
+func addInstanceTags(d *schema.ResourceData, client *golangsdk.ServiceClient, addTags map[string]interface{}) error {
+	var (
+		httpUrl = "v3/{project_id}/instances/{instance_id}/tags"
+	)
+
+	addPath := client.Endpoint + httpUrl
+	addPath = strings.ReplaceAll(addPath, "{project_id}", client.ProjectID)
+	addPath = strings.ReplaceAll(addPath, "{instance_id}", d.Id())
+
+	addOpt := golangsdk.RequestOpts{
+		KeepResponseBody: true,
+	}
+	addOpt.JSONBody = utils.RemoveNil(buildAddInstanceTagsBodyParams(addTags))
+
+	_, err := client.Request("POST", addPath, &addOpt)
+	if err != nil {
+		return fmt.Errorf("error updating GaussDB OpenGauss instance (%s) backup strategy: %s", d.Id(), err)
+	}
+
+	return nil
+}
+
+func buildAddInstanceTagsBodyParams(addTags map[string]interface{}) map[string]interface{} {
+	tags := make([]interface{}, 0, len(addTags))
+	for key, value := range addTags {
+		tags = append(tags, map[string]interface{}{
+			"key":   key,
+			"value": value,
+		})
+	}
+	bodyParams := map[string]interface{}{
+		"tags": tags,
+	}
+	return bodyParams
+}
+
+func deleteInstanceTags(d *schema.ResourceData, client *golangsdk.ServiceClient, deleteTagKeys []string) error {
+	var (
+		httpUrl = "v3/{project_id}/instances/{instance_id}/tag"
+	)
+
+	deleteBasePath := client.Endpoint + httpUrl
+	deleteBasePath = strings.ReplaceAll(deleteBasePath, "{project_id}", client.ProjectID)
+	deleteBasePath = strings.ReplaceAll(deleteBasePath, "{instance_id}", d.Id())
+
+	deleteOpt := golangsdk.RequestOpts{
+		KeepResponseBody: true,
+	}
+
+	for _, deleteTagKey := range deleteTagKeys {
+		deletePath := deleteBasePath + buildDeleteInstanceTagParamBodyParams(deleteTagKey)
+		_, err := client.Request("DELETE", deletePath, &deleteOpt)
+		if err != nil {
+			return fmt.Errorf("error deleting GaussDB OpenGauss instance (%s) tag(%s): %s", d.Id(), deleteTagKey, err)
+		}
+	}
+
+	return nil
+}
+
+func buildDeleteInstanceTagParamBodyParams(key string) string {
+	return fmt.Sprintf("?key=%s", key)
+}
+
+func updateInstanceTags(d *schema.ResourceData, client *golangsdk.ServiceClient) error {
+	oRaw, nRaw := d.GetChange("tags")
+	oMap := oRaw.(map[string]interface{})
+	nMap := nRaw.(map[string]interface{})
+
+	if len(oMap) > 0 {
+		keys := make([]string, 0, len(oMap))
+		for key, _ := range oMap {
+			keys = append(keys, key)
+		}
+		err := deleteInstanceTags(d, client, keys)
+		if err != nil {
+			return err
+		}
+	}
+
+	if len(nMap) > 0 {
+		err := addInstanceTags(d, client, nMap)
+		if err != nil {
+			return err
+		}
+	}
+
+	return nil
 }
 
 func resourceOpenGaussInstanceDelete(ctx context.Context, d *schema.ResourceData, meta interface{}) diag.Diagnostics {
