@@ -4,6 +4,7 @@ import (
 	"context"
 	"fmt"
 	"log"
+	"net/http"
 	"strconv"
 	"strings"
 	"time"
@@ -646,7 +647,7 @@ func resourceRdsInstanceCreate(ctx context.Context, d *schema.ResourceData, meta
 		return diag.FromErr(err)
 	}
 
-	if err = updateMsdtcHosts(ctx, d, client, instanceID); err != nil {
+	if err = updateMsdtcHosts(ctx, d, client); err != nil {
 		return diag.FromErr(err)
 	}
 
@@ -1073,7 +1074,7 @@ func resourceRdsInstanceUpdate(ctx context.Context, d *schema.ResourceData, meta
 		return diag.FromErr(err)
 	}
 
-	if err = updateMsdtcHosts(ctx, d, client, instanceID); err != nil {
+	if err = updateMsdtcHosts(ctx, d, client); err != nil {
 		return diag.FromErr(err)
 	}
 
@@ -1860,7 +1861,7 @@ func updateBinlogRetentionHours(d *schema.ResourceData, client *golangsdk.Servic
 	return nil
 }
 
-func updateMsdtcHosts(ctx context.Context, d *schema.ResourceData, client *golangsdk.ServiceClient, instanceID string) error {
+func updateMsdtcHosts(ctx context.Context, d *schema.ResourceData, client *golangsdk.ServiceClient) error {
 	if !d.HasChanges("msdtc_hosts") {
 		return nil
 	}
@@ -1869,38 +1870,79 @@ func updateMsdtcHosts(ctx context.Context, d *schema.ResourceData, client *golan
 	deleteHosts := oldRaws.(*schema.Set).Difference(newRaws.(*schema.Set))
 
 	if deleteHosts.Len() > 0 {
-		return fmt.Errorf("the RDS instance dose not support delete MSDTC hosts")
+		err := doUpdateMsdtcHosts(ctx, d, client, "DELETE", deleteHosts.List())
+		if err != nil {
+			return err
+		}
 	}
 	if addHosts.Len() > 0 {
-		hosts := buildRdsInstanceMsdtcHosts(addHosts.List())
-		msdtcHostsOpts := instances.ModifyMsdtcHostsOpts{
-			Hosts: *hosts,
-		}
-		retryFunc := func() (interface{}, bool, error) {
-			res, err := instances.ModifyMsdtcHosts(client, msdtcHostsOpts, instanceID).Extract()
-			retry, err := handleMultiOperationsError(err)
-			return res, retry, err
-		}
-		res, err := common.RetryContextWithWaitForState(&common.RetryContextWithWaitForStateParam{
-			Ctx:          ctx,
-			RetryFunc:    retryFunc,
-			WaitFunc:     rdsInstanceStateRefreshFunc(client, instanceID),
-			WaitTarget:   []string{"ACTIVE"},
-			Timeout:      d.Timeout(schema.TimeoutUpdate),
-			DelayTimeout: 1 * time.Second,
-			PollInterval: 10 * time.Second,
-		})
+		err := doUpdateMsdtcHosts(ctx, d, client, "POST", addHosts.List())
 		if err != nil {
-			return fmt.Errorf("error modify RDS instance (%s) MSDTC hosts: %s", instanceID, err)
-		}
-		job := res.(*instances.JobResponse)
-
-		if err = checkRDSInstanceJobFinish(client, job.JobId, d.Timeout(schema.TimeoutUpdate)); err != nil {
-			return fmt.Errorf("error waiting for RDS instance (%s) update msdtc hosts completed: %s", instanceID, err)
+			return err
 		}
 	}
 
 	return nil
+}
+
+func doUpdateMsdtcHosts(ctx context.Context, d *schema.ResourceData, client *golangsdk.ServiceClient, method string,
+	hostsRaw []interface{}) error {
+	var (
+		httpUrl = "v3/{project_id}/instances/{instance_id}/msdtc/host"
+	)
+	updatePath := client.Endpoint + httpUrl
+	updatePath = strings.ReplaceAll(updatePath, "{project_id}", client.ProjectID)
+	updatePath = strings.ReplaceAll(updatePath, "{instance_id}", d.Id())
+
+	updateOpt := golangsdk.RequestOpts{
+		KeepResponseBody: true,
+	}
+	updateOpt.JSONBody = utils.RemoveNil(buildMsdtcHostsBodyParams(hostsRaw))
+
+	retryFunc := func() (interface{}, bool, error) {
+		res, err := client.Request(strings.ToUpper(method), updatePath, &updateOpt)
+		retry, err := handleMultiOperationsError(err)
+		return res, retry, err
+	}
+	res, err := common.RetryContextWithWaitForState(&common.RetryContextWithWaitForStateParam{
+		Ctx:          ctx,
+		RetryFunc:    retryFunc,
+		WaitFunc:     rdsInstanceStateRefreshFunc(client, d.Id()),
+		WaitTarget:   []string{"ACTIVE"},
+		Timeout:      d.Timeout(schema.TimeoutUpdate),
+		DelayTimeout: 10 * time.Second,
+		PollInterval: 10 * time.Second,
+	})
+	if err != nil {
+		return fmt.Errorf("error updating RDS instance (%s) MSDTC hosts: %s", d.Id(), err)
+	}
+
+	updateRespBody, err := utils.FlattenResponse(res.(*http.Response))
+	if err != nil {
+		return err
+	}
+
+	jobId := utils.PathSearch("job_id", updateRespBody, nil)
+	if jobId == nil {
+		return fmt.Errorf("error updating RDS instance (%s) MSDTC hosts: job_id is not found in the API rsponse", d.Id())
+	}
+
+	return checkRDSInstanceJobFinish(client, jobId.(string), d.Timeout(schema.TimeoutUpdate))
+}
+
+func buildMsdtcHostsBodyParams(hostsRaw []interface{}) map[string]interface{} {
+	parameters := make([]map[string]interface{}, len(hostsRaw))
+	for i, v := range hostsRaw {
+		raw := v.(map[string]interface{})
+		parameters[i] = map[string]interface{}{
+			"ip":        raw["ip"],
+			"host_name": raw["host_name"],
+		}
+	}
+	bodyParams := map[string]interface{}{
+		"hosts": parameters,
+	}
+	return bodyParams
 }
 
 func updateTde(ctx context.Context, d *schema.ResourceData, client *golangsdk.ServiceClient, instanceID string) error {
@@ -2168,18 +2210,6 @@ func updatePowerAction(ctx context.Context, d *schema.ResourceData, client *gola
 		return fmt.Errorf("error waiting for RDS instance (%s) to %s: %s", d.Id(), action, err)
 	}
 	return nil
-}
-
-func buildRdsInstanceMsdtcHosts(hostsRaw []interface{}) *[]instances.Host {
-	hosts := make([]instances.Host, 0, len(hostsRaw))
-	for _, hostRaw := range hostsRaw {
-		host := hostRaw.(map[string]interface{})
-		hosts = append(hosts, instances.Host{
-			Ip:       host["ip"].(string),
-			HostName: host["host_name"].(string),
-		})
-	}
-	return &hosts
 }
 
 func enableVolumeAutoExpand(ctx context.Context, d *schema.ResourceData, client *golangsdk.ServiceClient,
