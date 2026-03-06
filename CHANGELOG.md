@@ -4,6 +4,7 @@
 
 * **New Resource Source:**
   + `huaweicloud_ccm_certificate_cancel_request` [GH-9055]
+  + `huaweicloud_ccm_certificate_cancel_request` [GH-9055]
   + `huaweicloud_ccm_csr` [GH-9041]
   + `huaweicloud_ccm_private_ca_switch_ocsp` [GH-9003]
   + `huaweicloud_dds_database_upgrade` [GH-8972]
