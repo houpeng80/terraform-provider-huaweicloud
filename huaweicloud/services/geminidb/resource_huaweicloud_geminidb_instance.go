@@ -30,6 +30,7 @@ var geminiDbInstanceNonUpdatableParams = []string{"datastore", "datastore.*.type
 }
 
 // @API GaussDBforNoSQL POST /v3/{project_id}/instances
+// @API GaussDBforNoSQL POST /v3/{project_id}/instances
 // @API GaussDBforNoSQL GET /v3/{project_id}/jobs
 // @API GaussDBforNoSQL GET /v3/{project_id}/instances
 // @API GaussDBforNoSQL PUT /v3/{project_id}/instances/{instance_id}/name
