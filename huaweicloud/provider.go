@@ -1130,6 +1130,7 @@ func Provider() *schema.Provider {
 			"huaweicloud_dcs_migration_tasks":                     dcs.DataSourceDcsMigrationTasks(),
 			"huaweicloud_dcs_migration_task_logs":                 dcs.DataSourceDcsMigrationTaskLogs(),
 			"huaweicloud_dcs_instance_expired_key_scan_histories": dcs.DataSourceDcsInstanceExpiredKeyScanHistories(),
+			"huaweicloud_dcs_center_tasks":                        dcs.DataSourceDcsCenterTasks(),
 
 			"huaweicloud_dds_quotas":                                  dds.DataSourceDdsQuotas(),
 			"huaweicloud_dds_audit_logs":                              dds.DataSourceDdsAuditLogs(),
