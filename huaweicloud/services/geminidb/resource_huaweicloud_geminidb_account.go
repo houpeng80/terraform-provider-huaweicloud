@@ -25,13 +25,13 @@ var geminiDbAccountNonUpdatableParams = []string{
 	"name",
 }
 
-// @API GeminiDBforNoSQL POST /v3/{project_id}/instances
-// @API GeminiDBforNoSQL GET /v3/{project_id}/jobs
-// @API GeminiDBforNoSQL GET /v3/{project_id}/redis/instances/{instance_id}/db-users
-// @API GeminiDBforNoSQL POST /v3/{project_id}/redis/instances/{instance_id}/db-users
-// @API GeminiDBforNoSQL PUT /v3/{project_id}/redis/instances/{instance_id}/db-users/password
-// @API GeminiDBforNoSQL PUT /v3/{project_id}/redis/instances/{instance_id}/db-users/privilege
-// @API GeminiDBforNoSQL DELETE /v3/{project_id}/redis/instances/{instance_id}/db-users
+// @API GaussDBforNoSQL POST /v3/{project_id}/instances
+// @API GaussDBforNoSQL GET /v3/{project_id}/jobs
+// @API GaussDBforNoSQL GET /v3/{project_id}/redis/instances/{instance_id}/db-users
+// @API GaussDBforNoSQL POST /v3/{project_id}/redis/instances/{instance_id}/db-users
+// @API GaussDBforNoSQL PUT /v3/{project_id}/redis/instances/{instance_id}/db-users/password
+// @API GaussDBforNoSQL PUT /v3/{project_id}/redis/instances/{instance_id}/db-users/privilege
+// @API GaussDBforNoSQL DELETE /v3/{project_id}/redis/instances/{instance_id}/db-users
 func ResourceGeminidbAccount() *schema.Resource {
 	return &schema.Resource{
 		CreateContext: resourceGeminiDbAccountCreate,
