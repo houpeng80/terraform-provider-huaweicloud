@@ -1,0 +1,16 @@
+info:
+    version: ""
+    title: resource_huaweicloud_dataarts_factory_script_execute
+    description: ""
+schemes:
+    - https
+host: huaweicloud.com
+tags:
+    - name: DataArtsStudio
+paths:
+    /v1/{project_id}/scripts/{script_name}/execute:
+        POST:
+            tag: DataArtsStudio
+    /v1/{project_id}/scripts/{script_name}/instances/{instance_id}:
+        GET:
+            tag: DataArtsStudio

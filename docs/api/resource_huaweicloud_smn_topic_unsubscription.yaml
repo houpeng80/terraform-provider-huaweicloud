@@ -1,0 +1,13 @@
+info:
+    version: ""
+    title: resource_huaweicloud_smn_topic_unsubscription
+    description: ""
+schemes:
+    - https
+host: huaweicloud.com
+tags:
+    - name: SMN
+paths:
+    /v2/notifications/subscriptions/unsubscribe:
+        GET:
+            tag: SMN

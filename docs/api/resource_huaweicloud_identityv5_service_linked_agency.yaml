@@ -8,6 +8,9 @@ host: huaweicloud.com
 tags:
     - name: IAM
 paths:
+    /v5/agencies/{agency_id}:
+        GET:
+            tag: IAM
     /v5/service-linked-agencies:
         PUT:
             tag: IAM

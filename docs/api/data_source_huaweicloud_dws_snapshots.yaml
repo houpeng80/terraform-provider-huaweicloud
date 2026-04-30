@@ -8,6 +8,9 @@ host: huaweicloud.com
 tags:
     - name: DWS
 paths:
+    /v1.0/{project_id}/clusters/{cluster_id}/snapshots:
+        GET:
+            tag: DWS
     /v1.0/{project_id}/snapshots:
         GET:
             tag: DWS

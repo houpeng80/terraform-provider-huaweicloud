@@ -1,0 +1,13 @@
+info:
+    version: ""
+    title: resource_huaweicloud_rfs_stack_rollback
+    description: ""
+schemes:
+    - https
+host: huaweicloud.com
+tags:
+    - name: RFS
+paths:
+    /v1/{project_id}/stacks/{stack_name}/rollbacks:
+        POST:
+            tag: RFS

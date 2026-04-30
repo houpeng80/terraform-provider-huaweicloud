@@ -1,0 +1,17 @@
+info:
+    version: ""
+    title: resource_huaweicloud_obs_bucket_bpa
+    description: ""
+schemes:
+    - https
+host: huaweicloud.com
+tags:
+    - name: OBS
+paths:
+    ?publicAccessBlock:
+        DELETE:
+            tag: OBS
+        GET:
+            tag: OBS
+        PUT:
+            tag: OBS

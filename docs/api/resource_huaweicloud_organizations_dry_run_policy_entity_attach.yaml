@@ -1,0 +1,19 @@
+info:
+    version: ""
+    title: resource_huaweicloud_organizations_dry_run_policy_entity_attach
+    description: ""
+schemes:
+    - https
+host: huaweicloud.com
+tags:
+    - name: Organizations
+paths:
+    /v1/organizations/dry-run-policies/{policy_id}/attach:
+        POST:
+            tag: Organizations
+    /v1/organizations/dry-run-policies/{policy_id}/attached-entities:
+        GET:
+            tag: Organizations
+    /v1/organizations/dry-run-policies/{policy_id}/detach:
+        POST:
+            tag: Organizations

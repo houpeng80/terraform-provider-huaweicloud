@@ -11,6 +11,6 @@ paths:
     /v3/endpoints:
         GET:
             tag: IAM
-    /v3/endpoints/{endpoints_id}:
+    /v3/endpoints/{endpoint_id}:
         GET:
             tag: IAM

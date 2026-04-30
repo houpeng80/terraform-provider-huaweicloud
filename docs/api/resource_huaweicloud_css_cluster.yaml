@@ -8,11 +8,8 @@ host: huaweicloud.com
 tags:
     - name: CSS
 paths:
-    /v1.0/{project_id}/{resource_type}/{cluster_id}/tags:
+    /v1.0/{project_id}/{resource_type}/{cluster_id}/tags/action:
         POST:
-            tag: CSS
-    /v1.0/{project_id}/{resource_type}/{cluster_id}/tags/{key}:
-        DELETE:
             tag: CSS
     /v1.0/{project_id}/cluster/{cluster_id}/period:
         POST:

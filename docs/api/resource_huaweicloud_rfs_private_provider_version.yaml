@@ -1,0 +1,19 @@
+info:
+    version: ""
+    title: resource_huaweicloud_rfs_private_provider_version
+    description: ""
+schemes:
+    - https
+host: huaweicloud.com
+tags:
+    - name: RFS
+paths:
+    /v1/private-providers/{provider_name}/versions:
+        POST:
+            tag: RFS
+    /v1/private-providers/{provider_name}/versions/{provider_version}:
+        DELETE:
+            tag: RFS
+    /v1/private-providers/{provider_name}/versions/{provider_version}/metadata:
+        GET:
+            tag: RFS

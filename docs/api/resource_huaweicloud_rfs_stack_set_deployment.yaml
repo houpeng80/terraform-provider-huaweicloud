@@ -1,0 +1,13 @@
+info:
+    version: ""
+    title: resource_huaweicloud_rfs_stack_set_deployment
+    description: ""
+schemes:
+    - https
+host: huaweicloud.com
+tags:
+    - name: RFS
+paths:
+    /v1/stack-sets/{stack_set_name}/deployments:
+        POST:
+            tag: RFS

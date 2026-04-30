@@ -1,0 +1,13 @@
+info:
+    version: ""
+    title: data_source_huaweicloud_rfs_stack_instances
+    description: ""
+schemes:
+    - https
+host: huaweicloud.com
+tags:
+    - name: RFS
+paths:
+    /v1/stack-sets/{stack_set_name}/stack-instances:
+        GET:
+            tag: RFS

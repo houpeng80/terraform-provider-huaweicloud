@@ -1,0 +1,13 @@
+info:
+    version: ""
+    title: resource_huaweicloud_dws_workload_queue_update_action
+    description: ""
+schemes:
+    - https
+host: huaweicloud.com
+tags:
+    - name: DWS
+paths:
+    /v2/{project_id}/clusters/{cluster_id}/workload/queues/{queue_name}/resources:
+        PUT:
+            tag: DWS

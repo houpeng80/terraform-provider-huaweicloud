@@ -1,6 +1,6 @@
 info:
     version: ""
-    title: data_source_huaweicloud_dataarts_architecture_ds_template_optionals
+    title: data_source_huaweicloud_dataarts_security_dynamic_masking_policies
     description: ""
 schemes:
     - https
@@ -8,6 +8,6 @@ host: huaweicloud.com
 tags:
     - name: DataArtsStudio
 paths:
-    /v2/{project_id}/design/standards/templates:
+    /v1/{project_id}/security/masking/dynamic/policies:
         GET:
             tag: DataArtsStudio

@@ -16,3 +16,6 @@ paths:
     /v2/{project_id}/clusters/{cluster_id}/logical-clusters/{logical_cluster_id}:
         DELETE:
             tag: DWS
+    /v2/{project_id}/clusters/{cluster_id}/logical-clusters/volumes:
+        GET:
+            tag: DWS

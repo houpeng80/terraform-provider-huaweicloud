@@ -1,0 +1,21 @@
+info:
+    version: ""
+    title: resource_huaweicloud_dataarts_security_data_recognition_rule_group
+    description: ""
+schemes:
+    - https
+host: huaweicloud.com
+tags:
+    - name: DataArtsStudio
+paths:
+    /v1/{project_id}/security/data-classification/rule/group:
+        GET:
+            tag: DataArtsStudio
+        POST:
+            tag: DataArtsStudio
+    /v1/{project_id}/security/data-classification/rule/group/{id}:
+        PUT:
+            tag: DataArtsStudio
+    /v1/{project_id}/security/data-classification/rule/group/batch-delete:
+        POST:
+            tag: DataArtsStudio

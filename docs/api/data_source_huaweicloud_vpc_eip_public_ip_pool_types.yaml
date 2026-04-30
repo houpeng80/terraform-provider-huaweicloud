@@ -1,0 +1,13 @@
+info:
+    version: ""
+    title: data_source_huaweicloud_vpc_eip_public_ip_pool_types
+    description: ""
+schemes:
+    - https
+host: huaweicloud.com
+tags:
+    - name: EIP
+paths:
+    /v3/{project_id}/eip/publicip-pool-types:
+        GET:
+            tag: EIP

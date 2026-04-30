@@ -1,0 +1,18 @@
+info:
+    version: ""
+    title: resource_huaweicloud_rfs_private_module_version
+    description: ""
+schemes:
+    - https
+host: huaweicloud.com
+tags:
+    - name: RFS
+paths:
+    /v1/private-modules/{module_name}/versions:
+        GET:
+            tag: RFS
+        POST:
+            tag: RFS
+    /v1/private-modules/{module_name}/versions/{module_version}:
+        DELETE:
+            tag: RFS

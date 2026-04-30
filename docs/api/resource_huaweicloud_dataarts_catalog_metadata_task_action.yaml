@@ -1,0 +1,13 @@
+info:
+    version: ""
+    title: resource_huaweicloud_dataarts_catalog_metadata_task_action
+    description: ""
+schemes:
+    - https
+host: huaweicloud.com
+tags:
+    - name: DataArtsStudio
+paths:
+    /v3/{project_id}/metadata/tasks/{task_id}/action:
+        POST:
+            tag: DataArtsStudio

@@ -11,22 +11,22 @@ paths:
     /v2.0/{project_id}/datasource/enhanced-connections:
         POST:
             tag: DLI
-    /v2.0/{project_id}/datasource/enhanced-connections/{id}:
+    /v2.0/{project_id}/datasource/enhanced-connections/{connection_id}:
         DELETE:
             tag: DLI
         GET:
             tag: DLI
         PUT:
             tag: DLI
-    /v2.0/{project_id}/datasource/enhanced-connections/{id}/associate-queue:
+    /v2.0/{project_id}/datasource/enhanced-connections/{connection_id}/associate-queue:
         POST:
             tag: DLI
-    /v2.0/{project_id}/datasource/enhanced-connections/{id}/disassociate-queue:
+    /v2.0/{project_id}/datasource/enhanced-connections/{connection_id}/disassociate-queue:
         POST:
             tag: DLI
-    /v2.0/{project_id}/datasource/enhanced-connections/{id}/routes:
+    /v2.0/{project_id}/datasource/enhanced-connections/{connection_id}/routes:
         POST:
             tag: DLI
-    /v2.0/{project_id}/datasource/enhanced-connections/{id}/routes/{name}:
+    /v2.0/{project_id}/datasource/enhanced-connections/{connection_id}/routes/{name}:
         DELETE:
             tag: DLI

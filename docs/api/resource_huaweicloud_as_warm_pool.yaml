@@ -1,0 +1,17 @@
+info:
+    version: ""
+    title: resource_huaweicloud_as_warm_pool
+    description: ""
+schemes:
+    - https
+host: huaweicloud.com
+tags:
+    - name: AS
+paths:
+    /v2/{project_id}/scaling_group/{scaling_group_id}/warm-pool:
+        DELETE:
+            tag: AS
+        GET:
+            tag: AS
+        PUT:
+            tag: AS

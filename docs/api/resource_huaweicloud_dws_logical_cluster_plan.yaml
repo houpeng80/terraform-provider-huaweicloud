@@ -1,0 +1,26 @@
+info:
+    version: ""
+    title: resource_huaweicloud_dws_logical_cluster_plan
+    description: ""
+schemes:
+    - https
+host: huaweicloud.com
+tags:
+    - name: DWS
+paths:
+    /v1/{project_id}/clusters/{cluster_id}/logical-cluster-plans:
+        GET:
+            tag: DWS
+        POST:
+            tag: DWS
+    /v1/{project_id}/clusters/{cluster_id}/logical-cluster-plans/{plan_id}:
+        DELETE:
+            tag: DWS
+        PUT:
+            tag: DWS
+    /v1/{project_id}/clusters/{cluster_id}/logical-cluster-plans/{plan_id}/disable:
+        POST:
+            tag: DWS
+    /v1/{project_id}/clusters/{cluster_id}/logical-cluster-plans/{plan_id}/enable:
+        POST:
+            tag: DWS

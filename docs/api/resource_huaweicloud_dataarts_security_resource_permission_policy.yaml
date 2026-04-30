@@ -1,0 +1,21 @@
+info:
+    version: ""
+    title: resource_huaweicloud_dataarts_security_resource_permission_policy
+    description: ""
+schemes:
+    - https
+host: huaweicloud.com
+tags:
+    - name: DataArtsStudio
+paths:
+    /v1/{project_id}/security/permission-resource:
+        POST:
+            tag: DataArtsStudio
+    /v1/{project_id}/security/permission-resource/{policy_id}:
+        GET:
+            tag: DataArtsStudio
+        PUT:
+            tag: DataArtsStudio
+    /v1/{project_id}/security/permission-resource/batch-delete:
+        POST:
+            tag: DataArtsStudio

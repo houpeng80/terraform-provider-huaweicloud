@@ -8,11 +8,11 @@ host: huaweicloud.com
 tags:
     - name: DLI
 paths:
-    /v1.0/{project_id}/jobs:
-        GET:
-            tag: DLI
     /v1.0/{project_id}/jobs/{job_id}:
         DELETE:
+            tag: DLI
+    /v1.0/{project_id}/jobs/{job_id}/detail:
+        GET:
             tag: DLI
     /v1.0/{project_id}/jobs/{job_id}/status:
         GET:

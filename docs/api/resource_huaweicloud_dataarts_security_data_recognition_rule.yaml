@@ -18,3 +18,6 @@ paths:
             tag: DataArtsStudio
         PUT:
             tag: DataArtsStudio
+    /v1/{project_id}/security/data-classification/rule/switch-status/{id}:
+        PUT:
+            tag: DataArtsStudio

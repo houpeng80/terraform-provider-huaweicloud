@@ -1,0 +1,21 @@
+info:
+    version: ""
+    title: resource_huaweicloud_rfs_stack_set
+    description: ""
+schemes:
+    - https
+host: huaweicloud.com
+tags:
+    - name: RFS
+paths:
+    /v1/stack-sets:
+        POST:
+            tag: RFS
+    /v1/stack-sets/{stack_set_name}:
+        DELETE:
+            tag: RFS
+        PATCH:
+            tag: RFS
+    /v1/stack-sets/{stack_set_name}/metadata:
+        GET:
+            tag: RFS
