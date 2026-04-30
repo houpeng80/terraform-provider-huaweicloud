@@ -1,0 +1,77 @@
+{
+  "provider_schemas": {
+    "huaweicloud/huaweicloud": {
+      "data_source_schemas": {
+        "huaweicloud_dataarts_dataservice_catalog_apis": {
+          "block": {
+            "attributes": {
+              "apis": {
+                "type": [
+                  "list",
+                  [
+                    "object",
+                    {
+                      "authorization_status": "string",
+                      "create_time": "string",
+                      "create_user": "string",
+                      "debug_status": "string",
+                      "description": "string",
+                      "group_id": "string",
+                      "id": "string",
+                      "manager": "string",
+                      "name": "string",
+                      "publish_messages": [
+                        "list",
+                        [
+                          "object",
+                          {
+                            "api_debug": "string",
+                            "api_id": "string",
+                            "api_status": "string",
+                            "id": "string",
+                            "instance_id": "string",
+                            "instance_name": "string"
+                          }
+                        ]
+                      ],
+                      "status": "string",
+                      "type": "string"
+                    }
+                  ]
+                ],
+                "description": "The list of the catalog APIs that matched filter parameters.",
+                "computed": true
+              },
+              "catalog_id": {
+                "type": "string",
+                "description": "The ID of the catalog.",
+                "required": true
+              },
+              "id": {
+                "type": "string",
+                "computed": true
+              },
+              "region": {
+                "type": "string",
+                "description": "The region where the catalog APIs are located.",
+                "computed": true
+              },
+              "workspace_id": {
+                "type": "string",
+                "description": "The ID of the workspace to which the catalog belongs.",
+                "required": true
+              }
+            }
+          },
+          "product": {
+            "short": "DataArtsStudio",
+            "name": "DataArts Studio",
+            "catalog": "Analytics",
+            "name_cn": "数据治理中心",
+            "catalog_cn": "大数据"
+          }
+        }
+      }
+    }
+  }
+}

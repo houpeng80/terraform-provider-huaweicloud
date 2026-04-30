@@ -1,0 +1,105 @@
+{
+  "provider_schemas": {
+    "huaweicloud/huaweicloud": {
+      "resource_schemas": {
+        "huaweicloud_dataarts_security_resource_permission_policy": {
+          "block": {
+            "attributes": {
+              "create_time": {
+                "type": "string",
+                "description": "The creation time of the resource permission policy, in RFC3339 format.",
+                "computed": true
+              },
+              "create_user": {
+                "type": "string",
+                "description": "The creator of the resource permission policy.",
+                "computed": true
+              },
+              "id": {
+                "type": "string",
+                "computed": true
+              },
+              "name": {
+                "type": "string",
+                "description": "The name of the resource permission policy.",
+                "required": true
+              },
+              "region": {
+                "type": "string",
+                "description": "The region where the resource permission policy is located.",
+                "computed": true
+              },
+              "update_time": {
+                "type": "string",
+                "description": "The latest update time of the resource permission policy, in RFC3339 format.",
+                "computed": true
+              },
+              "workspace_id": {
+                "type": "string",
+                "description": "The ID of the workspace to which the resource permission policy belongs.",
+                "required": true
+              }
+            },
+            "block_types": {
+              "members": {
+                "block": {
+                  "attributes": {
+                    "member_id": {
+                      "type": "string",
+                      "description": "The ID of the member.",
+                      "required": true
+                    },
+                    "member_name": {
+                      "type": "string",
+                      "description": "The name of the member.",
+                      "required": true
+                    },
+                    "member_type": {
+                      "type": "string",
+                      "description": "The type of the member.",
+                      "required": true
+                    }
+                  },
+                  "description": "The list of members."
+                },
+                "nesting_mode": "set",
+                "min_items": 1
+              },
+              "resources": {
+                "block": {
+                  "attributes": {
+                    "resource_id": {
+                      "type": "string",
+                      "description": "The ID of the resource.",
+                      "required": true
+                    },
+                    "resource_name": {
+                      "type": "string",
+                      "description": "The name of the resource.",
+                      "required": true
+                    },
+                    "resource_type": {
+                      "type": "string",
+                      "description": "The type of the resource.",
+                      "required": true
+                    }
+                  },
+                  "description": "The list of resources."
+                },
+                "nesting_mode": "set",
+                "min_items": 1
+              }
+            }
+          },
+          "product": {
+            "short": "DataArtsStudio",
+            "name": "DataArts Studio",
+            "catalog": "Analytics",
+            "name_cn": "数据治理中心",
+            "catalog_cn": "大数据"
+          }
+        }
+      }
+    }
+  }
+}

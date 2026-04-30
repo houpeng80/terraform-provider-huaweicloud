@@ -1,0 +1,40 @@
+{
+  "provider_schemas": {
+    "huaweicloud/huaweicloud": {
+      "resource_schemas": {
+        "huaweicloud_dli_flink_job_import": {
+          "block": {
+            "attributes": {
+              "id": {
+                "type": "string",
+                "computed": true
+              },
+              "is_cover": {
+                "type": "bool",
+                "description": "Whether to overwrite existing jobs with the same name.",
+                "optional": true
+              },
+              "obs_path": {
+                "type": "string",
+                "description": "The OBS path for the imported job zip file.",
+                "required": true
+              },
+              "region": {
+                "type": "string",
+                "description": "The region where the imported flink jobs are located.",
+                "computed": true
+              }
+            }
+          },
+          "product": {
+            "short": "DLI",
+            "name": "Data Lake Insight",
+            "catalog": "Analytics",
+            "name_cn": "数据湖探索",
+            "catalog_cn": "大数据"
+          }
+        }
+      }
+    }
+  }
+}

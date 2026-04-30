@@ -122,8 +122,7 @@
               "name": {
                 "type": "string",
                 "description": "The cluster name.",
-                "required": true,
-                "forcenew": true
+                "required": true
               },
               "network_id": {
                 "type": "string",
@@ -210,6 +209,12 @@
               "task_status": {
                 "type": "string",
                 "description": "Cluster management task.",
+                "computed": true
+              },
+              "timezone": {
+                "type": "string",
+                "description": "The timezone of the cluster.",
+                "optional": true,
                 "computed": true
               },
               "updated": {

@@ -1,0 +1,136 @@
+{
+  "provider_schemas": {
+    "huaweicloud/huaweicloud": {
+      "resource_schemas": {
+        "huaweicloud_rfs_stack_set_deployment": {
+          "block": {
+            "attributes": {
+              "call_identity": {
+                "type": "string",
+                "optional": true
+              },
+              "id": {
+                "type": "string",
+                "computed": true
+              },
+              "region": {
+                "type": "string",
+                "computed": true
+              },
+              "stack_set_id": {
+                "type": "string",
+                "optional": true
+              },
+              "stack_set_name": {
+                "type": "string",
+                "required": true
+              },
+              "template_body": {
+                "type": "string",
+                "optional": true
+              },
+              "template_uri": {
+                "type": "string",
+                "optional": true
+              },
+              "vars_body": {
+                "type": "string",
+                "optional": true
+              },
+              "vars_uri": {
+                "type": "string",
+                "optional": true
+              }
+            },
+            "block_types": {
+              "deployment_targets": {
+                "block": {
+                  "attributes": {
+                    "domain_id_filter_type": {
+                      "type": "string",
+                      "optional": true
+                    },
+                    "domain_ids": {
+                      "type": [
+                        "list",
+                        "string"
+                      ],
+                      "optional": true
+                    },
+                    "domain_ids_uri": {
+                      "type": "string",
+                      "optional": true
+                    },
+                    "organizational_unit_ids": {
+                      "type": [
+                        "list",
+                        "string"
+                      ],
+                      "optional": true
+                    },
+                    "regions": {
+                      "type": [
+                        "list",
+                        "string"
+                      ],
+                      "required": true
+                    }
+                  }
+                },
+                "nesting_mode": "list",
+                "min_items": 1,
+                "max_items": 1
+              },
+              "operation_preferences": {
+                "block": {
+                  "attributes": {
+                    "failure_tolerance_count": {
+                      "type": "number",
+                      "optional": true
+                    },
+                    "failure_tolerance_mode": {
+                      "type": "string",
+                      "optional": true
+                    },
+                    "failure_tolerance_percentage": {
+                      "type": "number",
+                      "optional": true
+                    },
+                    "max_concurrent_count": {
+                      "type": "number",
+                      "optional": true
+                    },
+                    "max_concurrent_percentage": {
+                      "type": "number",
+                      "optional": true
+                    },
+                    "region_concurrency_type": {
+                      "type": "string",
+                      "optional": true
+                    },
+                    "region_order": {
+                      "type": [
+                        "list",
+                        "string"
+                      ],
+                      "optional": true
+                    }
+                  }
+                },
+                "nesting_mode": "list",
+                "max_items": 1
+              }
+            }
+          },
+          "product": {
+            "short": "RFS",
+            "name": "Resource Formation",
+            "catalog": "Management & Governance",
+            "name_cn": "资源编排服务",
+            "catalog_cn": "管理与监管"
+          }
+        }
+      }
+    }
+  }
+}

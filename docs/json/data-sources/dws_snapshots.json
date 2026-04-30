@@ -5,13 +5,18 @@
         "huaweicloud_dws_snapshots": {
           "block": {
             "attributes": {
+              "cluster_id": {
+                "type": "string",
+                "description": "The cluster ID corresponding of the snapshot.",
+                "optional": true
+              },
               "id": {
                 "type": "string",
                 "computed": true
               },
               "region": {
                 "type": "string",
-                "description": "Specifies the region in which to query the resource. If omitted, the provider-level region will be used.",
+                "description": "The region in which to query the resource.",
                 "computed": true
               },
               "snapshots": {

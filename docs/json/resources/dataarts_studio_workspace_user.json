@@ -1,0 +1,81 @@
+{
+  "provider_schemas": {
+    "huaweicloud/huaweicloud": {
+      "resource_schemas": {
+        "huaweicloud_dataarts_studio_workspace_user": {
+          "block": {
+            "attributes": {
+              "created_at": {
+                "type": "string",
+                "description": "The creation time of the workspace user, in RFC3339 format.",
+                "computed": true
+              },
+              "id": {
+                "type": "string",
+                "computed": true
+              },
+              "region": {
+                "type": "string",
+                "description": "The region where the workspace user is located.",
+                "computed": true
+              },
+              "updated_at": {
+                "type": "string",
+                "description": "The latest update time of the workspace user, in RFC3339 format.",
+                "computed": true
+              },
+              "user_id": {
+                "type": "string",
+                "description": "The ID of the IAM user to which the workspace user correspond.",
+                "required": true
+              },
+              "workspace_id": {
+                "type": "string",
+                "description": "The ID of the workspace to which the user belongs.",
+                "required": true
+              }
+            },
+            "block_types": {
+              "roles": {
+                "block": {
+                  "attributes": {
+                    "code": {
+                      "type": "string",
+                      "description": "The role code.",
+                      "computed": true
+                    },
+                    "description": {
+                      "type": "string",
+                      "description": "The role description.",
+                      "computed": true
+                    },
+                    "id": {
+                      "type": "string",
+                      "description": "The role ID.",
+                      "required": true
+                    },
+                    "name": {
+                      "type": "string",
+                      "description": "The role name.",
+                      "computed": true
+                    }
+                  },
+                  "description": "The role list of the workspace user."
+                },
+                "nesting_mode": "set",
+                "min_items": 1
+              }
+            }
+          },
+          "product": {
+            "short": "DataArtsStudio",
+            "name": "DataArts Studio",
+            "catalog": "Analytics",
+            "name_cn": "数据治理中心",
+            "catalog_cn": "大数据"
+          }
+        }
+      }
+    }
+  }
+}

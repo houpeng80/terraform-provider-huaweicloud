@@ -1,0 +1,96 @@
+{
+  "provider_schemas": {
+    "huaweicloud/huaweicloud": {
+      "data_source_schemas": {
+        "huaweicloud_dcs_center_tasks": {
+          "block": {
+            "attributes": {
+              "end_time": {
+                "type": "string",
+                "optional": true
+              },
+              "id": {
+                "type": "string",
+                "computed": true
+              },
+              "region": {
+                "type": "string",
+                "computed": true
+              },
+              "start_time": {
+                "type": "string",
+                "optional": true
+              },
+              "tasks": {
+                "type": [
+                  "list",
+                  [
+                    "object",
+                    {
+                      "created_at": "string",
+                      "details": [
+                        "list",
+                        [
+                          "object",
+                          {
+                            "account_name": "string",
+                            "enable_public_ip": "bool",
+                            "enable_ssl": "bool",
+                            "group_name": "string",
+                            "is_only_adjust_charging": "bool",
+                            "new_cache_mode": "string",
+                            "new_cache_type": "string",
+                            "new_capacity": "string",
+                            "new_port": "number",
+                            "new_replica_num": "number",
+                            "new_resource_spec_code": "string",
+                            "node_name": "string",
+                            "old_cache_mode": "string",
+                            "old_cache_type": "string",
+                            "old_capacity": "string",
+                            "old_port": "number",
+                            "old_replica_num": "number",
+                            "old_resource_spec_code": "string",
+                            "public_ip_address": "string",
+                            "public_ip_id": "string",
+                            "rename_commands": [
+                              "list",
+                              "string"
+                            ],
+                            "replica_az": "string",
+                            "replica_ip": "string",
+                            "source_ip": "string",
+                            "target_ip": "string",
+                            "updated_config_length": "number"
+                          }
+                        ]
+                      ],
+                      "enable_show": "bool",
+                      "error_code": "string",
+                      "id": "string",
+                      "job_id": "string",
+                      "name": "string",
+                      "params": "string",
+                      "status": "string",
+                      "updated_at": "string",
+                      "user_id": "string",
+                      "user_name": "string"
+                    }
+                  ]
+                ],
+                "computed": true
+              }
+            }
+          },
+          "product": {
+            "short": "DCS",
+            "name": "Distributed Cache Service",
+            "catalog": "Middleware",
+            "name_cn": "分布式缓存服务",
+            "catalog_cn": "应用中间件"
+          }
+        }
+      }
+    }
+  }
+}

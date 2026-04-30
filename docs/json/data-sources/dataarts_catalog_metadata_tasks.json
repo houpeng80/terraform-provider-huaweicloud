@@ -1,0 +1,114 @@
+{
+  "provider_schemas": {
+    "huaweicloud/huaweicloud": {
+      "data_source_schemas": {
+        "huaweicloud_dataarts_catalog_metadata_tasks": {
+          "block": {
+            "attributes": {
+              "data_connection_id": {
+                "type": "string",
+                "description": "The data connection id of the metadata tasks.",
+                "optional": true
+              },
+              "data_source_type": {
+                "type": "string",
+                "description": "The data source type of the metadata tasks.",
+                "optional": true
+              },
+              "directory_id": {
+                "type": "string",
+                "description": "The directory ID of the metadata tasks.",
+                "optional": true
+              },
+              "end_time": {
+                "type": "string",
+                "description": "The end time of the metadata tasks.",
+                "optional": true
+              },
+              "id": {
+                "type": "string",
+                "computed": true
+              },
+              "metadata_tasks": {
+                "type": [
+                  "list",
+                  [
+                    "object",
+                    {
+                      "create_time": "string",
+                      "data_source_type": "string",
+                      "description": "string",
+                      "dir_id": "string",
+                      "duty_person": "string",
+                      "end_time": "string",
+                      "id": "string",
+                      "last_run_time": "string",
+                      "name": "string",
+                      "next_run_time": "string",
+                      "path": "string",
+                      "schedule_config": [
+                        "list",
+                        [
+                          "object",
+                          {
+                            "cron_expression": "string",
+                            "enabled": "number",
+                            "end_time": "string",
+                            "interval": "string",
+                            "job_id": "number",
+                            "max_time_out": "number",
+                            "schedule_type": "string",
+                            "start_time": "string"
+                          }
+                        ]
+                      ],
+                      "start_time": "string",
+                      "task_config": "string",
+                      "update_time": "string",
+                      "user_id": "string",
+                      "user_name": "string"
+                    }
+                  ]
+                ],
+                "description": "The list of metadata tasks that matched filter parameters.",
+                "computed": true
+              },
+              "name": {
+                "type": "string",
+                "description": "The name of the metadata task.",
+                "optional": true
+              },
+              "region": {
+                "type": "string",
+                "description": "The region where the metadata tasks are located.",
+                "computed": true
+              },
+              "start_time": {
+                "type": "string",
+                "description": "The start time of the metadata tasks.",
+                "optional": true
+              },
+              "user_name": {
+                "type": "string",
+                "description": "The user name which the metadata tasks are created.",
+                "optional": true
+              },
+              "workspace_id": {
+                "type": "string",
+                "description": "The ID of the workspace to which the metadata tasks belongs.",
+                "required": true
+              }
+            }
+          },
+          "product": {
+            "short": "DataArtsStudio",
+            "name": "DataArts Studio",
+            "catalog": "Analytics",
+            "name_cn": "数据治理中心",
+            "catalog_cn": "大数据"
+          }
+        }
+      }
+    }
+  }
+}

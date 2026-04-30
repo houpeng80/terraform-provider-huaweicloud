@@ -108,7 +108,8 @@
               },
               "mode": {
                 "type": "string",
-                "computed": true
+                "optional": true,
+                "default": "Cluster"
               },
               "name": {
                 "type": "string",
@@ -239,6 +240,12 @@
                 "type": "number",
                 "optional": true,
                 "computed": true
+              },
+              "volume_type": {
+                "type": "string",
+                "optional": true,
+                "computed": true,
+                "forcenew": true
               },
               "vpc_id": {
                 "type": "string",

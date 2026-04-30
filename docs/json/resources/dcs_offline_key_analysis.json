@@ -1,0 +1,133 @@
+{
+  "provider_schemas": {
+    "huaweicloud/huaweicloud": {
+      "resource_schemas": {
+        "huaweicloud_dcs_offline_key_analysis": {
+          "block": {
+            "attributes": {
+              "analysis_type": {
+                "type": "string",
+                "computed": true
+              },
+              "backup_id": {
+                "type": "string",
+                "optional": true
+              },
+              "finished_at": {
+                "type": "string",
+                "computed": true
+              },
+              "group_name": {
+                "type": "string",
+                "computed": true
+              },
+              "id": {
+                "type": "string",
+                "computed": true
+              },
+              "instance_id": {
+                "type": "string",
+                "required": true
+              },
+              "largest_key_prefixes": {
+                "type": [
+                  "list",
+                  [
+                    "object",
+                    {
+                      "bytes": "number",
+                      "key_prefix": "string",
+                      "num": "number",
+                      "type": "string"
+                    }
+                  ]
+                ],
+                "computed": true
+              },
+              "largest_keys": {
+                "type": [
+                  "list",
+                  [
+                    "object",
+                    {
+                      "bytes": "number",
+                      "key": "string",
+                      "num_of_elem": "number",
+                      "type": "string"
+                    }
+                  ]
+                ],
+                "computed": true
+              },
+              "node_id": {
+                "type": "string",
+                "required": true
+              },
+              "node_ip": {
+                "type": "string",
+                "computed": true
+              },
+              "node_ipv6": {
+                "type": "string",
+                "computed": true
+              },
+              "node_type": {
+                "type": "string",
+                "computed": true
+              },
+              "region": {
+                "type": "string",
+                "computed": true
+              },
+              "started_at": {
+                "type": "string",
+                "computed": true
+              },
+              "total_bytes": {
+                "type": "number",
+                "computed": true
+              },
+              "total_num": {
+                "type": "number",
+                "computed": true
+              },
+              "type_bytes": {
+                "type": [
+                  "list",
+                  [
+                    "object",
+                    {
+                      "bytes": "number",
+                      "type": "string"
+                    }
+                  ]
+                ],
+                "computed": true
+              },
+              "type_num": {
+                "type": [
+                  "list",
+                  [
+                    "object",
+                    {
+                      "num": "number",
+                      "type": "string"
+                    }
+                  ]
+                ],
+                "computed": true
+              }
+            }
+          },
+          "product": {
+            "short": "DCS",
+            "name": "Distributed Cache Service",
+            "catalog": "Middleware",
+            "name_cn": "分布式缓存服务",
+            "catalog_cn": "应用中间件"
+          }
+        }
+      }
+    }
+  }
+}

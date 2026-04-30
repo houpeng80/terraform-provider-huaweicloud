@@ -1,0 +1,68 @@
+{
+  "provider_schemas": {
+    "huaweicloud/huaweicloud": {
+      "data_source_schemas": {
+        "huaweicloud_dataarts_factory_scripts": {
+          "block": {
+            "attributes": {
+              "id": {
+                "type": "string",
+                "computed": true
+              },
+              "region": {
+                "type": "string",
+                "description": "The region where the scripts are located.",
+                "computed": true
+              },
+              "script_name": {
+                "type": "string",
+                "description": "The name of script to be queried.",
+                "optional": true
+              },
+              "scripts": {
+                "type": [
+                  "list",
+                  [
+                    "object",
+                    {
+                      "configuration": [
+                        "map",
+                        "string"
+                      ],
+                      "connection_name": "string",
+                      "create_user": "string",
+                      "database": "string",
+                      "description": "string",
+                      "directory": "string",
+                      "id": "string",
+                      "modify_time": "string",
+                      "name": "string",
+                      "owner": "string",
+                      "queue_name": "string",
+                      "type": "string",
+                      "version": "number"
+                    }
+                  ]
+                ],
+                "description": "The list of scripts that matched filter parameters.",
+                "computed": true
+              },
+              "workspace_id": {
+                "type": "string",
+                "description": "The ID of the workspace to which the scripts belong.",
+                "required": true
+              }
+            }
+          },
+          "product": {
+            "short": "DataArtsStudio",
+            "name": "DataArts Studio",
+            "catalog": "Analytics",
+            "name_cn": "数据治理中心",
+            "catalog_cn": "大数据"
+          }
+        }
+      }
+    }
+  }
+}

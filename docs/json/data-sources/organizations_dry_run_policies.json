@@ -1,0 +1,53 @@
+{
+  "provider_schemas": {
+    "huaweicloud/huaweicloud": {
+      "data_source_schemas": {
+        "huaweicloud_organizations_dry_run_policies": {
+          "block": {
+            "attributes": {
+              "attached_entity_id": {
+                "type": "string",
+                "description": "The ID of the entity associated with the dry run policy.",
+                "optional": true
+              },
+              "id": {
+                "type": "string",
+                "computed": true
+              },
+              "policies": {
+                "type": [
+                  "list",
+                  [
+                    "object",
+                    {
+                      "description": "string",
+                      "id": "string",
+                      "is_builtin": "bool",
+                      "name": "string",
+                      "type": "string",
+                      "urn": "string"
+                    }
+                  ]
+                ],
+                "description": "The list of dry run policies that matched the filter parameters.",
+                "computed": true
+              },
+              "policy_type": {
+                "type": "string",
+                "description": "The type of the dry run policies to be queried.",
+                "optional": true
+              }
+            }
+          },
+          "product": {
+            "short": "Organizations",
+            "name": "Organizations",
+            "catalog": "Management & Governance",
+            "name_cn": "组织",
+            "catalog_cn": "管理与监管"
+          }
+        }
+      }
+    }
+  }
+}

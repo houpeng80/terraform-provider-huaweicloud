@@ -1,0 +1,86 @@
+{
+  "provider_schemas": {
+    "huaweicloud/huaweicloud": {
+      "data_source_schemas": {
+        "huaweicloud_dataarts_quality_consistency_tasks": {
+          "block": {
+            "attributes": {
+              "category_id": {
+                "type": "number",
+                "description": "The category ID of the consistency task.",
+                "optional": true
+              },
+              "creator": {
+                "type": "string",
+                "description": "The creator of the consistency task.",
+                "optional": true
+              },
+              "end_time": {
+                "type": "number",
+                "description": "The end time of the last run time query interval.",
+                "optional": true
+              },
+              "id": {
+                "type": "string",
+                "computed": true
+              },
+              "name": {
+                "type": "string",
+                "description": "The name of the consistency task.",
+                "optional": true
+              },
+              "region": {
+                "type": "string",
+                "description": "The region where the consistency tasks are located.",
+                "computed": true
+              },
+              "schedule_status": {
+                "type": "string",
+                "description": "The schedule status of the consistency task.",
+                "optional": true
+              },
+              "start_time": {
+                "type": "number",
+                "description": "The start time of the last run time query interval.",
+                "optional": true
+              },
+              "tasks": {
+                "type": [
+                  "list",
+                  [
+                    "object",
+                    {
+                      "category_id": "number",
+                      "create_time": "string",
+                      "creator": "string",
+                      "id": "string",
+                      "last_run_time": "string",
+                      "name": "string",
+                      "schedule_interval": "string",
+                      "schedule_period": "string",
+                      "schedule_status": "string"
+                    }
+                  ]
+                ],
+                "description": "The list of the consistency tasks that matched filter parameters.",
+                "computed": true
+              },
+              "workspace_id": {
+                "type": "string",
+                "description": "The ID of the workspace.",
+                "required": true
+              }
+            }
+          },
+          "product": {
+            "short": "DataArtsStudio",
+            "name": "DataArts Studio",
+            "catalog": "Analytics",
+            "name_cn": "数据治理中心",
+            "catalog_cn": "大数据"
+          }
+        }
+      }
+    }
+  }
+}

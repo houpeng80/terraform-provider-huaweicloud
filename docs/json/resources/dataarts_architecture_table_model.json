@@ -357,6 +357,26 @@
                       "type": "string",
                       "computed": true
                     }
+                  },
+                  "block_types": {
+                    "tags": {
+                      "block": {
+                        "attributes": {
+                          "id": {
+                            "type": "string",
+                            "description": "The ID of the tag.",
+                            "required": true
+                          },
+                          "name": {
+                            "type": "string",
+                            "description": "The name of the tag.",
+                            "required": true
+                          }
+                        },
+                        "description": "The tags to be attached to the attribute."
+                      },
+                      "nesting_mode": "set"
+                    }
                   }
                 },
                 "nesting_mode": "set",
@@ -611,6 +631,24 @@
                   }
                 },
                 "nesting_mode": "list"
+              },
+              "tags": {
+                "block": {
+                  "attributes": {
+                    "id": {
+                      "type": "string",
+                      "description": "The ID of the tag.",
+                      "required": true
+                    },
+                    "name": {
+                      "type": "string",
+                      "description": "The name of the tag.",
+                      "required": true
+                    }
+                  },
+                  "description": "The tags to be attached to the table model."
+                },
+                "nesting_mode": "set"
               }
             }
           },

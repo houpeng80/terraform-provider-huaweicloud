@@ -1,0 +1,117 @@
+{
+  "provider_schemas": {
+    "huaweicloud/huaweicloud": {
+      "data_source_schemas": {
+        "huaweicloud_dataarts_security_permission_set_privileges": {
+          "block": {
+            "attributes": {
+              "cluster_id": {
+                "type": "string",
+                "description": "The cluster ID used to filter privileges.",
+                "optional": true
+              },
+              "cluster_name": {
+                "type": "string",
+                "description": "The cluster name used to filter privileges.",
+                "optional": true
+              },
+              "column_name": {
+                "type": "string",
+                "description": "The column name used to filter privileges.",
+                "optional": true
+              },
+              "database_name": {
+                "type": "string",
+                "description": "The database name used to filter privileges.",
+                "optional": true
+              },
+              "datasource_type": {
+                "type": "string",
+                "description": "The data source type used to filter privileges.",
+                "optional": true
+              },
+              "id": {
+                "type": "string",
+                "computed": true
+              },
+              "permission_set_id": {
+                "type": "string",
+                "description": "The ID of the permission set to which the granted privileges belong.",
+                "required": true
+              },
+              "privilege_action": {
+                "type": "string",
+                "description": "The privilege action used to filter privileges.",
+                "optional": true
+              },
+              "privilege_type": {
+                "type": "string",
+                "description": "The privilege type used to filter privileges.",
+                "optional": true
+              },
+              "privileges": {
+                "type": [
+                  "list",
+                  [
+                    "object",
+                    {
+                      "actions": [
+                        "list",
+                        "string"
+                      ],
+                      "cluster_id": "string",
+                      "cluster_name": "string",
+                      "column_name": "string",
+                      "database_name": "string",
+                      "datasource_type": "string",
+                      "id": "string",
+                      "instance_id": "string",
+                      "namespace": "string",
+                      "permission_set_id": "string",
+                      "row_level_security": "string",
+                      "schema_name": "string",
+                      "sync_msg": "string",
+                      "sync_status": "string",
+                      "table_name": "string",
+                      "type": "string",
+                      "url": "string"
+                    }
+                  ]
+                ],
+                "description": "The list of privileges that matched filter parameters.",
+                "computed": true
+              },
+              "region": {
+                "type": "string",
+                "description": "The region where the permission set privileges are located.",
+                "computed": true
+              },
+              "sync_status": {
+                "type": "string",
+                "description": "The synchronization status used to filter privileges.",
+                "optional": true
+              },
+              "table_name": {
+                "type": "string",
+                "description": "The table name used to filter privileges.",
+                "optional": true
+              },
+              "workspace_id": {
+                "type": "string",
+                "description": "The ID of the workspace to which the permission set belongs.",
+                "required": true
+              }
+            }
+          },
+          "product": {
+            "short": "DataArtsStudio",
+            "name": "DataArts Studio",
+            "catalog": "Analytics",
+            "name_cn": "数据治理中心",
+            "catalog_cn": "大数据"
+          }
+        }
+      }
+    }
+  }
+}

@@ -7,7 +7,7 @@
             "attributes": {
               "connection_id": {
                 "type": "string",
-                "description": "Specifies the ID of the data connection.",
+                "description": "The ID of the data connection to be queried.",
                 "optional": true
               },
               "connections": {
@@ -17,6 +17,7 @@
                     "object",
                     {
                       "agent_id": "string",
+                      "create_timestamp": "number",
                       "created_at": "string",
                       "created_by": "string",
                       "id": "string",
@@ -26,7 +27,7 @@
                     }
                   ]
                 ],
-                "description": "The list of the data connections.",
+                "description": "The list of the data connections that matched filter parameters.",
                 "computed": true
               },
               "id": {
@@ -35,21 +36,22 @@
               },
               "name": {
                 "type": "string",
-                "description": "Specifies the name of the data connection.",
+                "description": "The name of the data connection to be queried.",
                 "optional": true
               },
               "region": {
                 "type": "string",
+                "description": "The region where the data connections are located.",
                 "computed": true
               },
               "type": {
                 "type": "string",
-                "description": "Specifies the type of the data connection.",
+                "description": "The type of the data connection to be queried.",
                 "optional": true
               },
               "workspace_id": {
                 "type": "string",
-                "description": "Specifies the ID of the workspace to which the data connection belongs.",
+                "description": "The ID of the workspace to which the data connections belong.",
                 "required": true
               }
             }

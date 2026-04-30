@@ -1,0 +1,238 @@
+{
+  "provider_schemas": {
+    "huaweicloud/huaweicloud": {
+      "resource_schemas": {
+        "huaweicloud_rds_subscription": {
+          "block": {
+            "attributes": {
+              "bak_bucket_name": {
+                "type": "string",
+                "optional": true
+              },
+              "bak_file_name": {
+                "type": "string",
+                "optional": true
+              },
+              "id": {
+                "type": "string",
+                "computed": true
+              },
+              "independent_agent": {
+                "type": "string",
+                "optional": true
+              },
+              "initialize_at": {
+                "type": "string",
+                "required": true
+              },
+              "instance_id": {
+                "type": "string",
+                "required": true
+              },
+              "is_cloud": {
+                "type": "string",
+                "computed": true
+              },
+              "region": {
+                "type": "string",
+                "computed": true
+              },
+              "status": {
+                "type": "string",
+                "computed": true
+              },
+              "subscription_database": {
+                "type": "string",
+                "required": true
+              },
+              "subscription_type": {
+                "type": "string",
+                "required": true
+              }
+            },
+            "block_types": {
+              "initialize_info": {
+                "block": {
+                  "attributes": {
+                    "backup_id": {
+                      "type": "string",
+                      "optional": true
+                    },
+                    "bucket_name": {
+                      "type": "string",
+                      "optional": true
+                    },
+                    "file_name": {
+                      "type": "string",
+                      "optional": true
+                    },
+                    "file_path": {
+                      "type": "string",
+                      "optional": true
+                    },
+                    "file_source": {
+                      "type": "string",
+                      "optional": true
+                    },
+                    "overwrite_restore": {
+                      "type": "string",
+                      "optional": true
+                    }
+                  }
+                },
+                "nesting_mode": "list",
+                "max_items": 1
+              },
+              "job_schedule": {
+                "block": {
+                  "attributes": {
+                    "id": {
+                      "type": "string",
+                      "computed": true
+                    },
+                    "job_schedule_type": {
+                      "type": "string",
+                      "optional": true
+                    }
+                  },
+                  "block_types": {
+                    "daily_frequency": {
+                      "block": {
+                        "attributes": {
+                          "active_end_time": {
+                            "type": "string",
+                            "optional": true
+                          },
+                          "active_start_time": {
+                            "type": "string",
+                            "optional": true
+                          },
+                          "freq_interval_unit": {
+                            "type": "string",
+                            "optional": true
+                          },
+                          "freq_subday_interval": {
+                            "type": "number",
+                            "optional": true
+                          },
+                          "freq_subday_type": {
+                            "type": "string",
+                            "optional": true
+                          }
+                        }
+                      },
+                      "nesting_mode": "list",
+                      "max_items": 1
+                    },
+                    "duration": {
+                      "block": {
+                        "attributes": {
+                          "active_end_date": {
+                            "type": "string",
+                            "optional": true
+                          },
+                          "active_start_date": {
+                            "type": "string",
+                            "optional": true
+                          }
+                        }
+                      },
+                      "nesting_mode": "list",
+                      "max_items": 1
+                    },
+                    "frequency": {
+                      "block": {
+                        "attributes": {
+                          "freq_interval": {
+                            "type": "number",
+                            "optional": true
+                          },
+                          "freq_interval_day_monthly": {
+                            "type": "number",
+                            "optional": true
+                          },
+                          "freq_interval_monthly": {
+                            "type": "string",
+                            "optional": true
+                          },
+                          "freq_interval_weekly": {
+                            "type": [
+                              "set",
+                              "string"
+                            ],
+                            "optional": true
+                          },
+                          "freq_relative_interval_monthly": {
+                            "type": "string",
+                            "optional": true
+                          },
+                          "freq_type": {
+                            "type": "string",
+                            "optional": true
+                          }
+                        }
+                      },
+                      "nesting_mode": "list",
+                      "max_items": 1
+                    },
+                    "one_time_occurrence": {
+                      "block": {
+                        "attributes": {
+                          "active_start_date": {
+                            "type": "string",
+                            "optional": true
+                          },
+                          "active_start_time": {
+                            "type": "string",
+                            "optional": true
+                          }
+                        }
+                      },
+                      "nesting_mode": "list",
+                      "max_items": 1
+                    }
+                  }
+                },
+                "nesting_mode": "list",
+                "min_items": 1,
+                "max_items": 1
+              },
+              "local_subscription": {
+                "block": {
+                  "attributes": {
+                    "publication_id": {
+                      "type": "string",
+                      "required": true
+                    },
+                    "publication_instance_id": {
+                      "type": "string",
+                      "computed": true
+                    },
+                    "publication_instance_name": {
+                      "type": "string",
+                      "computed": true
+                    },
+                    "publication_name": {
+                      "type": "string",
+                      "optional": true
+                    }
+                  }
+                },
+                "nesting_mode": "list",
+                "min_items": 1,
+                "max_items": 1
+              }
+            }
+          },
+          "product": {
+            "short": "RDS",
+            "name": "Relational Database Service",
+            "catalog": "Databases",
+            "name_cn": "云数据库",
+            "catalog_cn": "数据库"
+          }
+        }
+      }
+    }
+  }
+}

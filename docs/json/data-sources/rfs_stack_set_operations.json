@@ -1,0 +1,72 @@
+{
+  "provider_schemas": {
+    "huaweicloud/huaweicloud": {
+      "data_source_schemas": {
+        "huaweicloud_rfs_stack_set_operations": {
+          "block": {
+            "attributes": {
+              "call_identity": {
+                "type": "string",
+                "optional": true
+              },
+              "filter": {
+                "type": "string",
+                "optional": true
+              },
+              "id": {
+                "type": "string",
+                "computed": true
+              },
+              "region": {
+                "type": "string",
+                "computed": true
+              },
+              "sort_dir": {
+                "type": "string",
+                "optional": true
+              },
+              "sort_key": {
+                "type": "string",
+                "optional": true
+              },
+              "stack_set_id": {
+                "type": "string",
+                "optional": true
+              },
+              "stack_set_name": {
+                "type": "string",
+                "required": true
+              },
+              "stack_set_operations": {
+                "type": [
+                  "list",
+                  [
+                    "object",
+                    {
+                      "action": "string",
+                      "create_time": "string",
+                      "operation_id": "string",
+                      "stack_set_id": "string",
+                      "stack_set_name": "string",
+                      "status": "string",
+                      "status_message": "string",
+                      "update_time": "string"
+                    }
+                  ]
+                ],
+                "computed": true
+              }
+            }
+          },
+          "product": {
+            "short": "RFS",
+            "name": "Resource Formation",
+            "catalog": "Management & Governance",
+            "name_cn": "资源编排服务",
+            "catalog_cn": "管理与监管"
+          }
+        }
+      }
+    }
+  }
+}

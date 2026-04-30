@@ -1,0 +1,78 @@
+{
+  "provider_schemas": {
+    "huaweicloud/huaweicloud": {
+      "data_source_schemas": {
+        "huaweicloud_dataarts_quality_rule_templates": {
+          "block": {
+            "attributes": {
+              "category_id": {
+                "type": "number",
+                "description": "The category ID of the quality rule template.",
+                "optional": true
+              },
+              "creator": {
+                "type": "string",
+                "description": "The creator of the quality rule template.",
+                "optional": true
+              },
+              "id": {
+                "type": "string",
+                "computed": true
+              },
+              "name": {
+                "type": "string",
+                "description": "The name of the quality rule template.",
+                "optional": true
+              },
+              "region": {
+                "type": "string",
+                "description": "The region where the quality rule templates are located.",
+                "computed": true
+              },
+              "system_template": {
+                "type": "bool",
+                "description": "Whether to query only system templates.",
+                "optional": true
+              },
+              "templates": {
+                "type": [
+                  "list",
+                  [
+                    "object",
+                    {
+                      "abnormal_table_template": "string",
+                      "category_id": "number",
+                      "created_at": "string",
+                      "creator": "string",
+                      "dimension": "string",
+                      "id": "number",
+                      "name": "string",
+                      "result_description": "string",
+                      "sql_info": "string",
+                      "system_template": "bool",
+                      "type": "string"
+                    }
+                  ]
+                ],
+                "description": "The list of quality rule templates that matched filter parameters.",
+                "computed": true
+              },
+              "workspace_id": {
+                "type": "string",
+                "description": "The ID of the workspace to which the quality rule templates belong.",
+                "required": true
+              }
+            }
+          },
+          "product": {
+            "short": "DataArtsStudio",
+            "name": "DataArts Studio",
+            "catalog": "Analytics",
+            "name_cn": "数据治理中心",
+            "catalog_cn": "大数据"
+          }
+        }
+      }
+    }
+  }
+}

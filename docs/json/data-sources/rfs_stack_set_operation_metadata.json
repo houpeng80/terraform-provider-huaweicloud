@@ -1,0 +1,124 @@
+{
+  "provider_schemas": {
+    "huaweicloud/huaweicloud": {
+      "data_source_schemas": {
+        "huaweicloud_rfs_stack_set_operation_metadata": {
+          "block": {
+            "attributes": {
+              "action": {
+                "type": "string",
+                "computed": true
+              },
+              "administration_agency_name": {
+                "type": "string",
+                "computed": true
+              },
+              "administration_agency_urn": {
+                "type": "string",
+                "computed": true
+              },
+              "call_identity": {
+                "type": "string",
+                "optional": true
+              },
+              "create_time": {
+                "type": "string",
+                "computed": true
+              },
+              "deployment_targets": {
+                "type": [
+                  "list",
+                  [
+                    "object",
+                    {
+                      "domain_id_filter_type": "string",
+                      "domain_ids": [
+                        "list",
+                        "string"
+                      ],
+                      "domain_ids_uri": "string",
+                      "organizational_unit_ids": [
+                        "list",
+                        "string"
+                      ],
+                      "regions": [
+                        "list",
+                        "string"
+                      ]
+                    }
+                  ]
+                ],
+                "computed": true
+              },
+              "id": {
+                "type": "string",
+                "computed": true
+              },
+              "managed_agency_name": {
+                "type": "string",
+                "computed": true
+              },
+              "operation_preferences": {
+                "type": [
+                  "list",
+                  [
+                    "object",
+                    {
+                      "failure_tolerance_count": "number",
+                      "failure_tolerance_mode": "string",
+                      "failure_tolerance_percentage": "number",
+                      "max_concurrent_count": "number",
+                      "max_concurrent_percentage": "number",
+                      "region_concurrency_type": "string",
+                      "region_order": [
+                        "list",
+                        "string"
+                      ]
+                    }
+                  ]
+                ],
+                "computed": true
+              },
+              "region": {
+                "type": "string",
+                "computed": true
+              },
+              "stack_set_id": {
+                "type": "string",
+                "optional": true,
+                "computed": true
+              },
+              "stack_set_name": {
+                "type": "string",
+                "required": true
+              },
+              "stack_set_operation_id": {
+                "type": "string",
+                "required": true
+              },
+              "status": {
+                "type": "string",
+                "computed": true
+              },
+              "status_message": {
+                "type": "string",
+                "computed": true
+              },
+              "update_time": {
+                "type": "string",
+                "computed": true
+              }
+            }
+          },
+          "product": {
+            "short": "RFS",
+            "name": "Resource Formation",
+            "catalog": "Management & Governance",
+            "name_cn": "资源编排服务",
+            "catalog_cn": "管理与监管"
+          }
+        }
+      }
+    }
+  }
+}

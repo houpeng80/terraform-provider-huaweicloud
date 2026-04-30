@@ -1,0 +1,143 @@
+{
+  "provider_schemas": {
+    "huaweicloud/huaweicloud": {
+      "data_source_schemas": {
+        "huaweicloud_cfw_logs": {
+          "block": {
+            "attributes": {
+              "end_time": {
+                "type": "number",
+                "required": true
+              },
+              "fw_instance_id": {
+                "type": "string",
+                "required": true
+              },
+              "id": {
+                "type": "string",
+                "computed": true
+              },
+              "log_id": {
+                "type": "string",
+                "optional": true
+              },
+              "log_type": {
+                "type": "string",
+                "required": true
+              },
+              "next_date": {
+                "type": "number",
+                "optional": true
+              },
+              "records": {
+                "type": [
+                  "list",
+                  [
+                    "object",
+                    {
+                      "action": "string",
+                      "app": "string",
+                      "attack_rule": "string",
+                      "attack_rule_id": "string",
+                      "attack_type": "string",
+                      "bytes": "number",
+                      "direction": "string",
+                      "dst_city_id": "string",
+                      "dst_city_name": "string",
+                      "dst_host": "string",
+                      "dst_ip": "string",
+                      "dst_port": "number",
+                      "dst_province_id": "string",
+                      "dst_province_name": "string",
+                      "dst_region_id": "string",
+                      "dst_region_name": "string",
+                      "end_time": "number",
+                      "event_time": "number",
+                      "hit_time": "number",
+                      "level": "string",
+                      "log_id": "string",
+                      "packet": "string",
+                      "packets": "number",
+                      "protocol": "string",
+                      "qos_channel_id": "string",
+                      "qos_channel_name": "string",
+                      "qos_channel_type": "number",
+                      "qos_drop_bytes": "number",
+                      "qos_drop_packets": "number",
+                      "qos_rule_id": "string",
+                      "qos_rule_name": "string",
+                      "qos_rule_type": "number",
+                      "real_ip": "string",
+                      "rule_id": "string",
+                      "rule_name": "string",
+                      "rule_type": "number",
+                      "sctp_is_handshake_flow": "string",
+                      "sctp_verification_tag": "number",
+                      "source": "string",
+                      "src_city_id": "string",
+                      "src_city_name": "string",
+                      "src_ip": "string",
+                      "src_port": "number",
+                      "src_province_id": "string",
+                      "src_province_name": "string",
+                      "src_region_id": "string",
+                      "src_region_name": "string",
+                      "start_time": "number",
+                      "tag": "number",
+                      "url": "string",
+                      "vgw_id": "string"
+                    }
+                  ]
+                ],
+                "computed": true
+              },
+              "region": {
+                "type": "string",
+                "computed": true
+              },
+              "start_time": {
+                "type": "number",
+                "required": true
+              },
+              "type": {
+                "type": "string",
+                "required": true
+              }
+            },
+            "block_types": {
+              "filters": {
+                "block": {
+                  "attributes": {
+                    "field": {
+                      "type": "string",
+                      "required": true
+                    },
+                    "operator": {
+                      "type": "string",
+                      "required": true
+                    },
+                    "values": {
+                      "type": [
+                        "list",
+                        "string"
+                      ],
+                      "optional": true
+                    }
+                  }
+                },
+                "nesting_mode": "list"
+              }
+            }
+          },
+          "product": {
+            "short": "CFW",
+            "name": "Cloud Firewall",
+            "catalog": "Security & Compliance",
+            "name_cn": "云防火墙",
+            "catalog_cn": "安全与合规"
+          }
+        }
+      }
+    }
+  }
+}

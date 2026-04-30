@@ -20,8 +20,7 @@
                   "list",
                   "string"
                 ],
-                "required": true,
-                "forcenew": true
+                "required": true
               },
               "bandwidth_info": {
                 "type": [
@@ -321,6 +320,26 @@
               }
             },
             "block_types": {
+              "auto_scaling": {
+                "block": {
+                  "attributes": {
+                    "bandwidth_usage_upper_threshold": {
+                      "type": "number",
+                      "required": true
+                    },
+                    "scale_out_cooldown": {
+                      "type": "number",
+                      "required": true
+                    },
+                    "window_size": {
+                      "type": "number",
+                      "required": true
+                    }
+                  }
+                },
+                "nesting_mode": "list",
+                "max_items": 1
+              },
               "backup_policy": {
                 "block": {
                   "attributes": {

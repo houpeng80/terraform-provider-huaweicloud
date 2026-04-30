@@ -13,20 +13,17 @@
               "description": {
                 "type": "string",
                 "description": "The description of the resource stack.",
-                "optional": true,
-                "forcenew": true
+                "optional": true
               },
               "enable_auto_rollback": {
                 "type": "bool",
                 "description": "Whether to enable automatic rollback.",
-                "optional": true,
-                "forcenew": true
+                "optional": true
               },
               "enable_deletion_protection": {
                 "type": "bool",
                 "description": "Whether to enable delete protection.",
-                "optional": true,
-                "forcenew": true
+                "optional": true
               },
               "id": {
                 "type": "string",
@@ -86,20 +83,17 @@
                     "name": {
                       "type": "string",
                       "description": "The name of IAM agency authorized to IAC account for resources modification.",
-                      "required": true,
-                      "forcenew": true
+                      "required": true
                     },
                     "provider_name": {
                       "type": "string",
                       "description": "The name of the provider corresponding to the IAM agency.",
-                      "required": true,
-                      "forcenew": true
+                      "required": true
                     }
                   },
                   "description": "The configuration of the agencies authorized to IAC."
                 },
-                "nesting_mode": "list",
-                "forcenew": true
+                "nesting_mode": "list"
               }
             }
           },

@@ -1,0 +1,76 @@
+{
+  "provider_schemas": {
+    "huaweicloud/huaweicloud": {
+      "resource_schemas": {
+        "huaweicloud_dws_workload_queue_update_action": {
+          "block": {
+            "attributes": {
+              "cluster_id": {
+                "type": "string",
+                "description": "The ID of the cluster to which the workload queue belongs.",
+                "required": true
+              },
+              "id": {
+                "type": "string",
+                "computed": true
+              },
+              "logical_cluster_name": {
+                "type": "string",
+                "description": "The name of the logical cluster to which the workload queue belongs.",
+                "optional": true
+              },
+              "name": {
+                "type": "string",
+                "description": "The name of the workload queue to be updated.",
+                "required": true
+              },
+              "region": {
+                "type": "string",
+                "description": "The region where the workload queue is located.",
+                "computed": true
+              }
+            },
+            "block_types": {
+              "configuration": {
+                "block": {
+                  "attributes": {
+                    "resource_description": {
+                      "type": "string",
+                      "description": "The description of the resource attribute.",
+                      "optional": true
+                    },
+                    "resource_name": {
+                      "type": "string",
+                      "description": "The resource attribute name.",
+                      "required": true
+                    },
+                    "resource_value": {
+                      "type": "number",
+                      "description": "The resource attribute value.",
+                      "required": true
+                    },
+                    "value_unit": {
+                      "type": "string",
+                      "description": "The unit of the resource attribute.",
+                      "optional": true
+                    }
+                  },
+                  "description": "The list of workload queue resource items to be updated."
+                },
+                "nesting_mode": "list",
+                "min_items": 1
+              }
+            }
+          },
+          "product": {
+            "short": "DWS",
+            "name": "Data Warehouse Service",
+            "catalog": "Analytics",
+            "name_cn": "数据仓库服务",
+            "catalog_cn": "大数据"
+          }
+        }
+      }
+    }
+  }
+}

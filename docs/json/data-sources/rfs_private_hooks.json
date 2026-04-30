@@ -1,0 +1,64 @@
+{
+  "provider_schemas": {
+    "huaweicloud/huaweicloud": {
+      "data_source_schemas": {
+        "huaweicloud_rfs_private_hooks": {
+          "block": {
+            "attributes": {
+              "hooks": {
+                "type": [
+                  "list",
+                  [
+                    "object",
+                    {
+                      "configuration": [
+                        "list",
+                        [
+                          "object",
+                          {
+                            "failure_mode": "string",
+                            "target_stacks": "string"
+                          }
+                        ]
+                      ],
+                      "create_time": "string",
+                      "default_version": "string",
+                      "hook_description": "string",
+                      "hook_id": "string",
+                      "hook_name": "string",
+                      "update_time": "string"
+                    }
+                  ]
+                ],
+                "computed": true
+              },
+              "id": {
+                "type": "string",
+                "computed": true
+              },
+              "region": {
+                "type": "string",
+                "computed": true
+              },
+              "sort_dir": {
+                "type": "string",
+                "optional": true
+              },
+              "sort_key": {
+                "type": "string",
+                "optional": true
+              }
+            }
+          },
+          "product": {
+            "short": "RFS",
+            "name": "Resource Formation",
+            "catalog": "Management & Governance",
+            "name_cn": "资源编排服务",
+            "catalog_cn": "管理与监管"
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,200 @@
+{
+  "provider_schemas": {
+    "huaweicloud/huaweicloud": {
+      "data_source_schemas": {
+        "huaweicloud_elb_loadbalancer_topology": {
+          "block": {
+            "attributes": {
+              "edges": {
+                "type": [
+                  "list",
+                  [
+                    "object",
+                    {
+                      "label": "string",
+                      "label_id": "string",
+                      "source": "string",
+                      "source_type": "string",
+                      "target": "string",
+                      "target_type": "string"
+                    }
+                  ]
+                ],
+                "computed": true
+              },
+              "id": {
+                "type": "string",
+                "computed": true
+              },
+              "labels": {
+                "type": [
+                  "list",
+                  [
+                    "object",
+                    {
+                      "l7policies": [
+                        "list",
+                        [
+                          "object",
+                          {
+                            "action": "string",
+                            "id": "string",
+                            "name": "string",
+                            "priority": "number",
+                            "rules": [
+                              "list",
+                              [
+                                "object",
+                                {
+                                  "compare_type": "string",
+                                  "conditions": [
+                                    "list",
+                                    [
+                                      "object",
+                                      {
+                                        "key": "string",
+                                        "value": "string"
+                                      }
+                                    ]
+                                  ],
+                                  "created_at": "string",
+                                  "id": "string",
+                                  "invert": "bool",
+                                  "key": "string",
+                                  "provisioning_status": "string",
+                                  "type": "string",
+                                  "updated_at": "string",
+                                  "value": "string"
+                                }
+                              ]
+                            ]
+                          }
+                        ]
+                      ]
+                    }
+                  ]
+                ],
+                "computed": true
+              },
+              "listener_id": {
+                "type": "string",
+                "optional": true
+              },
+              "listener_name": {
+                "type": "string",
+                "optional": true
+              },
+              "listener_protocol": {
+                "type": "string",
+                "optional": true
+              },
+              "listener_protocol_port": {
+                "type": "number",
+                "optional": true
+              },
+              "loadbalancer_id": {
+                "type": "string",
+                "required": true
+              },
+              "nodes": {
+                "type": [
+                  "list",
+                  [
+                    "object",
+                    {
+                      "eips": [
+                        "list",
+                        [
+                          "object",
+                          {
+                            "id": "string",
+                            "ip_address": "string",
+                            "ip_version": "number"
+                          }
+                        ]
+                      ],
+                      "listeners": [
+                        "list",
+                        [
+                          "object",
+                          {
+                            "id": "string",
+                            "name": "string",
+                            "port_ranges": [
+                              "list",
+                              [
+                                "object",
+                                {
+                                  "end_port": "number",
+                                  "start_port": "number"
+                                }
+                              ]
+                            ],
+                            "protocol": "string",
+                            "protocol_port": "number"
+                          }
+                        ]
+                      ],
+                      "loadbalancers": [
+                        "list",
+                        [
+                          "object",
+                          {
+                            "availability_zone_list": [
+                              "list",
+                              "string"
+                            ],
+                            "guaranteed": "bool",
+                            "id": "string",
+                            "ipv6_vip_address": "string",
+                            "l4_flavor_id": "string",
+                            "l7_flavor_id": "string",
+                            "name": "string",
+                            "vip_address": "string"
+                          }
+                        ]
+                      ],
+                      "pools": [
+                        "list",
+                        [
+                          "object",
+                          {
+                            "id": "string",
+                            "lb_algorithm": "string",
+                            "name": "string",
+                            "protocol": "string",
+                            "type": "string"
+                          }
+                        ]
+                      ]
+                    }
+                  ]
+                ],
+                "computed": true
+              },
+              "pool_id": {
+                "type": "string",
+                "optional": true
+              },
+              "pool_name": {
+                "type": "string",
+                "optional": true
+              },
+              "region": {
+                "type": "string",
+                "computed": true
+              }
+            }
+          },
+          "product": {
+            "short": "ELB",
+            "name": "Elastic Load Balance",
+            "catalog": "Networking",
+            "name_cn": "弹性负载均衡",
+            "catalog_cn": "网络"
+          }
+        }
+      }
+    }
+  }
+}

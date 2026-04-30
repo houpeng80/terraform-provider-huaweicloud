@@ -1,0 +1,73 @@
+{
+  "provider_schemas": {
+    "huaweicloud/huaweicloud": {
+      "resource_schemas": {
+        "huaweicloud_organizations_policy_dry_run_configuration": {
+          "block": {
+            "attributes": {
+              "agency_name": {
+                "type": "string",
+                "description": "The name of the IAM agency.",
+                "optional": true,
+                "computed": true
+              },
+              "bucket_name": {
+                "type": "string",
+                "description": "The name of the OBS bucket.",
+                "optional": true,
+                "computed": true
+              },
+              "bucket_prefix": {
+                "type": "string",
+                "description": "The prefix of the OBS bucket.",
+                "optional": true
+              },
+              "created_at": {
+                "type": "string",
+                "description": "The creation time of the policy dry-run configuration.",
+                "computed": true
+              },
+              "id": {
+                "type": "string",
+                "computed": true
+              },
+              "policy_type": {
+                "type": "string",
+                "description": "The type of the policy.",
+                "required": true
+              },
+              "region_id": {
+                "type": "string",
+                "description": "The region where the OBS bucket is located.",
+                "optional": true,
+                "computed": true
+              },
+              "root_id": {
+                "type": "string",
+                "description": "The ID of the organization's root.",
+                "required": true
+              },
+              "status": {
+                "type": "string",
+                "description": "The status of the policy dry-run.",
+                "optional": true
+              },
+              "updated_at": {
+                "type": "string",
+                "description": "The latest update time of the policy dry-run configuration.",
+                "computed": true
+              }
+            }
+          },
+          "product": {
+            "short": "Organizations",
+            "name": "Organizations",
+            "catalog": "Management & Governance",
+            "name_cn": "组织",
+            "catalog_cn": "管理与监管"
+          }
+        }
+      }
+    }
+  }
+}

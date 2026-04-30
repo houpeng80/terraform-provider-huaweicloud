@@ -1,0 +1,163 @@
+{
+  "provider_schemas": {
+    "huaweicloud/huaweicloud": {
+      "resource_schemas": {
+        "huaweicloud_dataarts_security_dynamic_masking_policy": {
+          "block": {
+            "attributes": {
+              "cluster_id": {
+                "type": "string",
+                "description": "The ID of the cluster corresponding to the data source.",
+                "required": true
+              },
+              "cluster_name": {
+                "type": "string",
+                "description": "The name of the cluster corresponding to the data source.",
+                "required": true
+              },
+              "conn_id": {
+                "type": "string",
+                "description": "The ID of the data connection.",
+                "required": true
+              },
+              "conn_name": {
+                "type": "string",
+                "description": "The name of the data connection.",
+                "required": true
+              },
+              "create_time": {
+                "type": "string",
+                "description": "The creation time of the policy, in RFC3339 format.",
+                "computed": true
+              },
+              "create_user": {
+                "type": "string",
+                "description": "The creator of the policy.",
+                "computed": true
+              },
+              "database_name": {
+                "type": "string",
+                "description": "The name of the database.",
+                "required": true
+              },
+              "datasource_type": {
+                "type": "string",
+                "description": "The data source type of the dynamic masking policy.",
+                "required": true
+              },
+              "id": {
+                "type": "string",
+                "computed": true
+              },
+              "name": {
+                "type": "string",
+                "description": "The name of the dynamic masking policy.",
+                "required": true
+              },
+              "region": {
+                "type": "string",
+                "description": "The region where the dynamic masking policy is located.",
+                "computed": true
+              },
+              "schema_name": {
+                "type": "string",
+                "description": "The schema name corresponding to the DWS data source.",
+                "optional": true,
+                "computed": true
+              },
+              "sync_log": {
+                "type": "string",
+                "description": "The synchronization log of the policy.",
+                "computed": true
+              },
+              "sync_msg": {
+                "type": "string",
+                "description": "The synchronization message of the policy.",
+                "computed": true
+              },
+              "sync_status": {
+                "type": "string",
+                "description": "The current synchronization status of the policy.",
+                "computed": true
+              },
+              "table_id": {
+                "type": "string",
+                "description": "The ID of the data table.",
+                "optional": true,
+                "computed": true
+              },
+              "table_name": {
+                "type": "string",
+                "description": "The name of the data table.",
+                "required": true
+              },
+              "update_time": {
+                "type": "string",
+                "description": "The latest update time of the policy, in RFC3339 format.",
+                "computed": true
+              },
+              "update_user": {
+                "type": "string",
+                "description": "The latest updater of the policy.",
+                "computed": true
+              },
+              "user_groups": {
+                "type": "string",
+                "description": "The list of user groups, separated by commas (,).",
+                "optional": true
+              },
+              "users": {
+                "type": "string",
+                "description": "The list of user names, separated by commas (,).",
+                "optional": true
+              },
+              "workspace_id": {
+                "type": "string",
+                "description": "The ID of the workspace to which the dynamic masking policy belongs.",
+                "required": true
+              }
+            },
+            "block_types": {
+              "policy_list": {
+                "block": {
+                  "attributes": {
+                    "algorithm_detail_dto": {
+                      "type": "string",
+                      "description": "The algorithm detail object of dynamic masking, in JSON format.",
+                      "optional": true
+                    },
+                    "algorithm_type": {
+                      "type": "string",
+                      "description": "The algorithm type of dynamic masking.",
+                      "optional": true
+                    },
+                    "column_name": {
+                      "type": "string",
+                      "description": "The field name in the data table.",
+                      "required": true
+                    },
+                    "column_type": {
+                      "type": "string",
+                      "description": "The field type in the data table.",
+                      "required": true
+                    }
+                  },
+                  "description": "The list of dynamic masking policy configurations."
+                },
+                "nesting_mode": "set",
+                "min_items": 1
+              }
+            }
+          },
+          "product": {
+            "short": "DataArtsStudio",
+            "name": "DataArts Studio",
+            "catalog": "Analytics",
+            "name_cn": "数据治理中心",
+            "catalog_cn": "大数据"
+          }
+        }
+      }
+    }
+  }
+}

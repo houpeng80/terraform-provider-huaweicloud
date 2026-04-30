@@ -1,0 +1,89 @@
+{
+  "provider_schemas": {
+    "huaweicloud/huaweicloud": {
+      "data_source_schemas": {
+        "huaweicloud_dataarts_security_resource_permission_policies": {
+          "block": {
+            "attributes": {
+              "id": {
+                "type": "string",
+                "computed": true
+              },
+              "member_name": {
+                "type": "string",
+                "description": "The name of the authorized member to be queried.",
+                "optional": true
+              },
+              "policies": {
+                "type": [
+                  "list",
+                  [
+                    "object",
+                    {
+                      "create_time": "string",
+                      "create_user": "string",
+                      "members": [
+                        "list",
+                        [
+                          "object",
+                          {
+                            "member_id": "string",
+                            "member_name": "string",
+                            "member_type": "string"
+                          }
+                        ]
+                      ],
+                      "policy_id": "string",
+                      "policy_name": "string",
+                      "resources": [
+                        "list",
+                        [
+                          "object",
+                          {
+                            "resource_id": "string",
+                            "resource_name": "string",
+                            "resource_type": "string"
+                          }
+                        ]
+                      ],
+                      "update_time": "string"
+                    }
+                  ]
+                ],
+                "description": "The list of resource permission policies that matched filter parameters.",
+                "computed": true
+              },
+              "policy_name": {
+                "type": "string",
+                "description": "The name of the resource permission policy to be queried.",
+                "optional": true
+              },
+              "region": {
+                "type": "string",
+                "description": "The region where the resource permission policies are located.",
+                "computed": true
+              },
+              "resource_name": {
+                "type": "string",
+                "description": "The name of the authorized resource to be queried.",
+                "optional": true
+              },
+              "workspace_id": {
+                "type": "string",
+                "description": "The ID of the workspace to which the resource permission policies belong.",
+                "required": true
+              }
+            }
+          },
+          "product": {
+            "short": "DataArtsStudio",
+            "name": "DataArts Studio",
+            "catalog": "Analytics",
+            "name_cn": "数据治理中心",
+            "catalog_cn": "大数据"
+          }
+        }
+      }
+    }
+  }
+}

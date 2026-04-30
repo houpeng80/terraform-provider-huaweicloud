@@ -141,6 +141,11 @@
                 "optional": true,
                 "computed": true
               },
+              "nat64_enable": {
+                "type": "string",
+                "optional": true,
+                "computed": true
+              },
               "protection_reason": {
                 "type": "string",
                 "optional": true
@@ -222,6 +227,11 @@
                 "computed": true
               },
               "tls_ciphers_policy": {
+                "type": "string",
+                "optional": true,
+                "computed": true
+              },
+              "transparent_client_ip_enable": {
                 "type": "string",
                 "optional": true,
                 "computed": true

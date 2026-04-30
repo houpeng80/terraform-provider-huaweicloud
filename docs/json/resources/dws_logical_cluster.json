@@ -49,6 +49,21 @@
                 "type": "string",
                 "description": "The DWS logical cluster status.",
                 "computed": true
+              },
+              "volume_usage": {
+                "type": [
+                  "list",
+                  [
+                    "object",
+                    {
+                      "percent": "string",
+                      "total": "string",
+                      "usage": "string"
+                    }
+                  ]
+                ],
+                "description": "The volume usage information of the logical cluster.",
+                "computed": true
               }
             },
             "block_types": {

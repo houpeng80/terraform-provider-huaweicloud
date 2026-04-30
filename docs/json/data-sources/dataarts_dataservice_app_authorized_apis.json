@@ -1,0 +1,69 @@
+{
+  "provider_schemas": {
+    "huaweicloud/huaweicloud": {
+      "data_source_schemas": {
+        "huaweicloud_dataarts_dataservice_app_authorized_apis": {
+          "block": {
+            "attributes": {
+              "apis": {
+                "type": [
+                  "list",
+                  [
+                    "object",
+                    {
+                      "approval_time": "string",
+                      "deadline": "string",
+                      "description": "string",
+                      "id": "string",
+                      "manager": "string",
+                      "name": "string",
+                      "relationship_type": "string",
+                      "static_params": [
+                        "list",
+                        [
+                          "object",
+                          {
+                            "name": "string",
+                            "value": "string"
+                          }
+                        ]
+                      ]
+                    }
+                  ]
+                ],
+                "description": "The list of APIs authorized to the APP.",
+                "computed": true
+              },
+              "app_id": {
+                "type": "string",
+                "description": "The ID of the APP used to query authorized APIs.",
+                "required": true
+              },
+              "id": {
+                "type": "string",
+                "computed": true
+              },
+              "region": {
+                "type": "string",
+                "description": "The region where the authorized APIs are located.",
+                "computed": true
+              },
+              "workspace_id": {
+                "type": "string",
+                "description": "The ID of the workspace to which the APP belongs.",
+                "required": true
+              }
+            }
+          },
+          "product": {
+            "short": "DataArtsStudio",
+            "name": "DataArts Studio",
+            "catalog": "Analytics",
+            "name_cn": "数据治理中心",
+            "catalog_cn": "大数据"
+          }
+        }
+      }
+    }
+  }
+}

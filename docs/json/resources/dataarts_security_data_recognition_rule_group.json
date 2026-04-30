@@ -1,0 +1,73 @@
+{
+  "provider_schemas": {
+    "huaweicloud/huaweicloud": {
+      "resource_schemas": {
+        "huaweicloud_dataarts_security_data_recognition_rule_group": {
+          "block": {
+            "attributes": {
+              "created_at": {
+                "type": "string",
+                "description": "The creation time of the data recognition rule group, in RFC3339 format.",
+                "computed": true
+              },
+              "created_by": {
+                "type": "string",
+                "description": "The creator of the data recognition rule group.",
+                "computed": true
+              },
+              "description": {
+                "type": "string",
+                "description": "The description of the data recognition rule group.",
+                "optional": true
+              },
+              "id": {
+                "type": "string",
+                "computed": true
+              },
+              "name": {
+                "type": "string",
+                "description": "The name of the data recognition rule group.",
+                "required": true
+              },
+              "region": {
+                "type": "string",
+                "description": "The region where the data recognition rule group is located.",
+                "computed": true
+              },
+              "rule_ids": {
+                "type": [
+                  "set",
+                  "string"
+                ],
+                "description": "The list of data recognition rule IDs that the rule group contains.",
+                "required": true
+              },
+              "updated_at": {
+                "type": "string",
+                "description": "The update time of the data recognition rule group, in RFC3339 format.",
+                "computed": true
+              },
+              "updated_by": {
+                "type": "string",
+                "description": "The updater of the data recognition rule group.",
+                "computed": true
+              },
+              "workspace_id": {
+                "type": "string",
+                "description": "The ID of the workspace to which the rule group belongs.",
+                "required": true
+              }
+            }
+          },
+          "product": {
+            "short": "DataArtsStudio",
+            "name": "DataArts Studio",
+            "catalog": "Analytics",
+            "name_cn": "数据治理中心",
+            "catalog_cn": "大数据"
+          }
+        }
+      }
+    }
+  }
+}

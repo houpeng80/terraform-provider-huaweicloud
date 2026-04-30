@@ -1,0 +1,167 @@
+{
+  "provider_schemas": {
+    "huaweicloud/huaweicloud": {
+      "resource_schemas": {
+        "huaweicloud_dataarts_catalog_metadata_task": {
+          "block": {
+            "attributes": {
+              "create_time": {
+                "type": "string",
+                "description": "The create time of the metadata task.",
+                "computed": true
+              },
+              "data_source_type": {
+                "type": "string",
+                "description": "The data source type of the metadata task.",
+                "required": true
+              },
+              "description": {
+                "type": "string",
+                "description": "The description of the metadata task.",
+                "optional": true
+              },
+              "dir_id": {
+                "type": "string",
+                "description": "The directory name of the metadata task.",
+                "required": true
+              },
+              "duty_person": {
+                "type": "string",
+                "description": "The duty person of the metadata task.",
+                "computed": true
+              },
+              "end_time": {
+                "type": "string",
+                "description": "The end time of the metadata task.",
+                "computed": true
+              },
+              "id": {
+                "type": "string",
+                "computed": true
+              },
+              "last_run_time": {
+                "type": "string",
+                "description": "The last run time of the metadata task.",
+                "computed": true
+              },
+              "name": {
+                "type": "string",
+                "description": "The name of the metadata task.",
+                "required": true
+              },
+              "next_run_time": {
+                "type": "string",
+                "description": "The next run time of the metadata task.",
+                "computed": true
+              },
+              "path": {
+                "type": "string",
+                "description": "The directory path of the metadata task.",
+                "computed": true
+              },
+              "region": {
+                "type": "string",
+                "description": "The region where the metadata task is located.",
+                "computed": true
+              },
+              "start_time": {
+                "type": "string",
+                "description": "The start time of the metadata task.",
+                "computed": true
+              },
+              "task_config": {
+                "type": "string",
+                "description": "The config information of the metadata task, in JSON format.",
+                "required": true
+              },
+              "terminal_before_modify": {
+                "type": "bool",
+                "description": "Whether to force terminal matadata task before update or delete it.",
+                "optional": true
+              },
+              "update_time": {
+                "type": "string",
+                "description": "The latest update time of the metadata task.",
+                "computed": true
+              },
+              "user_id": {
+                "type": "string",
+                "description": "The user ID which the metadata task is created.",
+                "computed": true
+              },
+              "user_name": {
+                "type": "string",
+                "description": "The user name which the metadata task is created.",
+                "computed": true
+              },
+              "workspace_id": {
+                "type": "string",
+                "description": "The ID of the workspace to which the metadata task belongs.",
+                "required": true
+              }
+            },
+            "block_types": {
+              "schedule_config": {
+                "block": {
+                  "attributes": {
+                    "cron_expression": {
+                      "type": "string",
+                      "description": "The cron expression of the schedule task.",
+                      "optional": true
+                    },
+                    "enabled": {
+                      "type": "number",
+                      "description": "Whether to enable the schedule task.",
+                      "optional": true
+                    },
+                    "end_time": {
+                      "type": "string",
+                      "description": "The end time of the schedule task.",
+                      "optional": true
+                    },
+                    "interval": {
+                      "type": "string",
+                      "description": "The interval time of the schedule task.",
+                      "optional": true
+                    },
+                    "job_id": {
+                      "type": "number",
+                      "description": "The job ID of the schedule task.",
+                      "computed": true
+                    },
+                    "max_time_out": {
+                      "type": "number",
+                      "description": "The max time out of the schedule task.",
+                      "optional": true
+                    },
+                    "schedule_type": {
+                      "type": "string",
+                      "description": "The schedule type of the schedule task.",
+                      "required": true
+                    },
+                    "start_time": {
+                      "type": "string",
+                      "description": "The start time of the schedule task.",
+                      "optional": true
+                    }
+                  },
+                  "description": "The dispatch information of the metadata task."
+                },
+                "nesting_mode": "list",
+                "min_items": 1,
+                "max_items": 1
+              }
+            }
+          },
+          "product": {
+            "short": "DataArtsStudio",
+            "name": "DataArts Studio",
+            "catalog": "Analytics",
+            "name_cn": "数据治理中心",
+            "catalog_cn": "大数据"
+          }
+        }
+      }
+    }
+  }
+}

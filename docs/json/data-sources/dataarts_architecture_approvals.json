@@ -1,0 +1,87 @@
+{
+  "provider_schemas": {
+    "huaweicloud/huaweicloud": {
+      "data_source_schemas": {
+        "huaweicloud_dataarts_architecture_approvals": {
+          "block": {
+            "attributes": {
+              "approval_status": {
+                "type": "string",
+                "description": "The approval status of the approvals.",
+                "optional": true
+              },
+              "approvals": {
+                "type": [
+                  "list",
+                  [
+                    "object",
+                    {
+                      "approval_status": "string",
+                      "approval_time": "string",
+                      "approval_type": "string",
+                      "approver": "string",
+                      "biz_id": "string",
+                      "biz_info": "string",
+                      "biz_status": "string",
+                      "biz_type": "string",
+                      "create_by": "string",
+                      "email": "string",
+                      "id": "string",
+                      "msg": "string",
+                      "name_ch": "string",
+                      "name_en": "string",
+                      "submit_time": "string"
+                    }
+                  ]
+                ],
+                "description": "The list of approvals that matched filter parameters.",
+                "computed": true
+              },
+              "approver": {
+                "type": "string",
+                "description": "The approver of the approvals.",
+                "optional": true
+              },
+              "biz_id": {
+                "type": "string",
+                "description": "The business ID of the approvals.",
+                "optional": true
+              },
+              "create_by": {
+                "type": "string",
+                "description": "The creator of the approvals.",
+                "optional": true
+              },
+              "id": {
+                "type": "string",
+                "computed": true
+              },
+              "name": {
+                "type": "string",
+                "description": "The name of the approvals.",
+                "optional": true
+              },
+              "region": {
+                "type": "string",
+                "description": "The region where the approvals are located.",
+                "computed": true
+              },
+              "workspace_id": {
+                "type": "string",
+                "description": "The ID of the workspace to which the approvals belong.",
+                "required": true
+              }
+            }
+          },
+          "product": {
+            "short": "DataArtsStudio",
+            "name": "DataArts Studio",
+            "catalog": "Analytics",
+            "name_cn": "数据治理中心",
+            "catalog_cn": "大数据"
+          }
+        }
+      }
+    }
+  }
+}

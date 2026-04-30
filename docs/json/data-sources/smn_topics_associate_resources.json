@@ -1,0 +1,102 @@
+{
+  "provider_schemas": {
+    "huaweicloud/huaweicloud": {
+      "data_source_schemas": {
+        "huaweicloud_smn_topics_associate_resources": {
+          "block": {
+            "attributes": {
+              "enterprise_project_id": {
+                "type": "string",
+                "optional": true
+              },
+              "fuzzy_display_name": {
+                "type": "string",
+                "optional": true
+              },
+              "fuzzy_name": {
+                "type": "string",
+                "optional": true
+              },
+              "id": {
+                "type": "string",
+                "computed": true
+              },
+              "name": {
+                "type": "string",
+                "optional": true
+              },
+              "region": {
+                "type": "string",
+                "computed": true
+              },
+              "topic_id": {
+                "type": "string",
+                "optional": true
+              },
+              "topics": {
+                "type": [
+                  "list",
+                  [
+                    "object",
+                    {
+                      "attributes": [
+                        "list",
+                        [
+                          "object",
+                          {
+                            "access_policy": "string",
+                            "create_time": "string",
+                            "update_time": "string"
+                          }
+                        ]
+                      ],
+                      "create_time": "string",
+                      "display_name": "string",
+                      "enterprise_project_id": "string",
+                      "logtanks": [
+                        "list",
+                        [
+                          "object",
+                          {
+                            "create_time": "string",
+                            "id": "string",
+                            "log_group_id": "string",
+                            "log_stream_id": "string",
+                            "update_time": "string"
+                          }
+                        ]
+                      ],
+                      "name": "string",
+                      "push_policy": "number",
+                      "tags": [
+                        "list",
+                        [
+                          "object",
+                          {
+                            "key": "string",
+                            "value": "string"
+                          }
+                        ]
+                      ],
+                      "topic_id": "string",
+                      "topic_urn": "string",
+                      "update_time": "string"
+                    }
+                  ]
+                ],
+                "computed": true
+              }
+            }
+          },
+          "product": {
+            "short": "SMN",
+            "name": "Simple Message Notification",
+            "catalog": "Management & Governance",
+            "name_cn": "消息通知服务",
+            "catalog_cn": "管理与监管"
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,53 @@
+{
+  "provider_schemas": {
+    "huaweicloud/huaweicloud": {
+      "data_source_schemas": {
+        "huaweicloud_swr_signed_image_associated_image_tags": {
+          "block": {
+            "attributes": {
+              "id": {
+                "type": "string",
+                "computed": true
+              },
+              "namespace": {
+                "type": "string",
+                "description": "Specifies the namespace (organization) name of the signed image belongs.",
+                "required": true
+              },
+              "region": {
+                "type": "string",
+                "description": "Specifies the region in which to query the data source.",
+                "computed": true
+              },
+              "repository": {
+                "type": "string",
+                "description": "Specifies the repository name of the signed image.",
+                "required": true
+              },
+              "sig_tag": {
+                "type": "string",
+                "description": "Specifies the tag of the signed image.",
+                "required": true
+              },
+              "tags": {
+                "type": [
+                  "list",
+                  "string"
+                ],
+                "description": "The list of refenerce tags of the signed image.",
+                "computed": true
+              }
+            }
+          },
+          "product": {
+            "short": "SWR",
+            "name": "Software Repository for Container",
+            "catalog": "Containers",
+            "name_cn": "容器镜像服务",
+            "catalog_cn": "容器"
+          }
+        }
+      }
+    }
+  }
+}

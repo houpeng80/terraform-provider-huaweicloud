@@ -1,0 +1,108 @@
+{
+  "provider_schemas": {
+    "huaweicloud/huaweicloud": {
+      "data_source_schemas": {
+        "huaweicloud_dataarts_security_permission_sets": {
+          "block": {
+            "attributes": {
+              "datasource_type": {
+                "type": "string",
+                "description": "The datasource type of the permission set to be queried.",
+                "optional": true
+              },
+              "id": {
+                "type": "string",
+                "computed": true
+              },
+              "manager_id": {
+                "type": "string",
+                "description": "The manager ID of the permission set to be queried.",
+                "optional": true
+              },
+              "manager_name": {
+                "type": "string",
+                "description": "The manager name of the permission set to be queried.",
+                "optional": true
+              },
+              "manager_type": {
+                "type": "string",
+                "description": "The manager type of the permission set to be queried.",
+                "optional": true
+              },
+              "name": {
+                "type": "string",
+                "description": "The name of the permission set to be queried.",
+                "optional": true
+              },
+              "parent_id": {
+                "type": "string",
+                "description": "The parent ID of the permission set to be queried.",
+                "optional": true
+              },
+              "permission_sets": {
+                "type": [
+                  "list",
+                  [
+                    "object",
+                    {
+                      "created_at": "string",
+                      "created_by": "string",
+                      "datasource_type": "string",
+                      "description": "string",
+                      "domain_id": "string",
+                      "id": "string",
+                      "instance_id": "string",
+                      "managed_cluster_id": "string",
+                      "managed_cluster_name": "string",
+                      "manager_id": "string",
+                      "manager_name": "string",
+                      "manager_type": "string",
+                      "name": "string",
+                      "parent_id": "string",
+                      "project_id": "string",
+                      "sync_msg": "string",
+                      "sync_status": "string",
+                      "sync_time": "string",
+                      "type": "string",
+                      "updated_at": "string",
+                      "updated_by": "string"
+                    }
+                  ]
+                ],
+                "description": "The list of permission sets that match the filter parameters.",
+                "computed": true
+              },
+              "region": {
+                "type": "string",
+                "description": "The region where the permission sets are located.",
+                "computed": true
+              },
+              "sync_status": {
+                "type": "string",
+                "description": "The sync status of the permission set to be queried.",
+                "optional": true
+              },
+              "type_filter": {
+                "type": "string",
+                "description": "The type filter of the permission sets to be queried.",
+                "optional": true
+              },
+              "workspace_id": {
+                "type": "string",
+                "description": "The ID of the workspace to which the permission sets belong.",
+                "required": true
+              }
+            }
+          },
+          "product": {
+            "short": "DataArtsStudio",
+            "name": "DataArts Studio",
+            "catalog": "Analytics",
+            "name_cn": "数据治理中心",
+            "catalog_cn": "大数据"
+          }
+        }
+      }
+    }
+  }
+}

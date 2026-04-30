@@ -1,0 +1,65 @@
+{
+  "provider_schemas": {
+    "huaweicloud/huaweicloud": {
+      "data_source_schemas": {
+        "huaweicloud_vpc_address_group_associated_resources": {
+          "block": {
+            "attributes": {
+              "address_groups": {
+                "type": [
+                  "list",
+                  [
+                    "object",
+                    {
+                      "dependency": [
+                        "list",
+                        [
+                          "object",
+                          {
+                            "instance_id": "string",
+                            "instance_name": "string",
+                            "type": "string"
+                          }
+                        ]
+                      ],
+                      "enterprise_project_id": "string",
+                      "id": "string"
+                    }
+                  ]
+                ],
+                "description": "The response body for querying the resources associated with an address group.",
+                "computed": true
+              },
+              "enterprise_project_id": {
+                "type": "string",
+                "description": "Specifies the ID of the enterprise project that an IP address group belongs to.",
+                "optional": true
+              },
+              "id": {
+                "type": "string",
+                "computed": true
+              },
+              "ip_address_group_id": {
+                "type": "string",
+                "description": "Specifies the ID of an IP address group that will be used as a filter.",
+                "optional": true
+              },
+              "region": {
+                "type": "string",
+                "description": "Specifies the region in which to query the resources.",
+                "computed": true
+              }
+            }
+          },
+          "product": {
+            "short": "VPC",
+            "name": "Virtual Private Cloud",
+            "catalog": "Networking",
+            "name_cn": "虚拟私有云",
+            "catalog_cn": "网络"
+          }
+        }
+      }
+    }
+  }
+}

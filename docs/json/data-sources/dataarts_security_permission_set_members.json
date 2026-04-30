@@ -1,0 +1,75 @@
+{
+  "provider_schemas": {
+    "huaweicloud/huaweicloud": {
+      "data_source_schemas": {
+        "huaweicloud_dataarts_security_permission_set_members": {
+          "block": {
+            "attributes": {
+              "id": {
+                "type": "string",
+                "computed": true
+              },
+              "member_name": {
+                "type": "string",
+                "description": "The name of the specified permission set member to be queried.",
+                "optional": true
+              },
+              "member_type": {
+                "type": "string",
+                "description": "The type of the permission set members to be queried.",
+                "optional": true
+              },
+              "members": {
+                "type": [
+                  "list",
+                  [
+                    "object",
+                    {
+                      "cluster_id": "string",
+                      "cluster_name": "string",
+                      "cluster_type": "string",
+                      "create_user": "string",
+                      "created_at": "string",
+                      "deadline": "string",
+                      "id": "string",
+                      "instance_id": "string",
+                      "name": "string",
+                      "permission_set_id": "string",
+                      "status": "string",
+                      "type": "string",
+                      "workspace": "string"
+                    }
+                  ]
+                ],
+                "description": "The list of permission set associated members that match the filter parameters.",
+                "computed": true
+              },
+              "permission_set_id": {
+                "type": "string",
+                "description": "The ID of the permission set which the members associated.",
+                "required": true
+              },
+              "region": {
+                "type": "string",
+                "description": "The region where the permission set associated members are located.",
+                "computed": true
+              },
+              "workspace_id": {
+                "type": "string",
+                "description": "The ID of the workspace to which the permission set belongs.",
+                "required": true
+              }
+            }
+          },
+          "product": {
+            "short": "DataArtsStudio",
+            "name": "DataArts Studio",
+            "catalog": "Analytics",
+            "name_cn": "数据治理中心",
+            "catalog_cn": "大数据"
+          }
+        }
+      }
+    }
+  }
+}

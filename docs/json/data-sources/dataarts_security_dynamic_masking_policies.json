@@ -1,0 +1,83 @@
+{
+  "provider_schemas": {
+    "huaweicloud/huaweicloud": {
+      "data_source_schemas": {
+        "huaweicloud_dataarts_security_dynamic_masking_policies": {
+          "block": {
+            "attributes": {
+              "cluster_name": {
+                "type": "string",
+                "description": "The name of the cluster to be queried.",
+                "optional": true
+              },
+              "database_name": {
+                "type": "string",
+                "description": "The name of the database to be queried.",
+                "optional": true
+              },
+              "id": {
+                "type": "string",
+                "computed": true
+              },
+              "name": {
+                "type": "string",
+                "description": "The name of the dynamic masking policy to be queried.",
+                "optional": true
+              },
+              "policies": {
+                "type": [
+                  "list",
+                  [
+                    "object",
+                    {
+                      "cluster_id": "string",
+                      "cluster_name": "string",
+                      "create_time": "string",
+                      "create_user": "string",
+                      "database_name": "string",
+                      "datasource_type": "string",
+                      "id": "string",
+                      "name": "string",
+                      "sync_msg": "string",
+                      "sync_status": "string",
+                      "sync_time": "string",
+                      "table_name": "string",
+                      "update_time": "string",
+                      "update_user": "string",
+                      "user_groups": "string",
+                      "users": "string"
+                    }
+                  ]
+                ],
+                "description": "The list of dynamic masking policies that matched filter parameters.",
+                "computed": true
+              },
+              "region": {
+                "type": "string",
+                "description": "The region where the dynamic masking policies are located.",
+                "computed": true
+              },
+              "table_name": {
+                "type": "string",
+                "description": "The name of the data table to be queried.",
+                "optional": true
+              },
+              "workspace_id": {
+                "type": "string",
+                "description": "The ID of the workspace to which the dynamic masking policies belong.",
+                "required": true
+              }
+            }
+          },
+          "product": {
+            "short": "DataArtsStudio",
+            "name": "DataArts Studio",
+            "catalog": "Analytics",
+            "name_cn": "数据治理中心",
+            "catalog_cn": "大数据"
+          }
+        }
+      }
+    }
+  }
+}

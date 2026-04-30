@@ -1,0 +1,92 @@
+{
+  "provider_schemas": {
+    "huaweicloud/huaweicloud": {
+      "data_source_schemas": {
+        "huaweicloud_dli_queues": {
+          "block": {
+            "attributes": {
+              "elastic_resource_pool_name": {
+                "type": "string",
+                "description": "The name of the elastic resource pool.",
+                "optional": true
+              },
+              "id": {
+                "type": "string",
+                "computed": true
+              },
+              "queue_name": {
+                "type": "string",
+                "description": "The name of the queue to be queried.",
+                "optional": true
+              },
+              "queue_type": {
+                "type": "string",
+                "description": "The type of the queue to be queried.",
+                "optional": true
+              },
+              "queues": {
+                "type": [
+                  "list",
+                  [
+                    "object",
+                    {
+                      "created_at": "string",
+                      "engine": "string",
+                      "enterprise_project_id": "string",
+                      "name": "string",
+                      "owner": "string",
+                      "scaling_policies": [
+                        "list",
+                        [
+                          "object",
+                          {
+                            "impact_start_time": "string",
+                            "impact_stop_time": "string",
+                            "inherit_elastic_resource_pool_max_cu": "bool",
+                            "max_cu": "number",
+                            "min_cu": "number",
+                            "priority": "number"
+                          }
+                        ]
+                      ],
+                      "type": "string"
+                    }
+                  ]
+                ],
+                "description": "The list of queues that matched filter parameters.",
+                "computed": true
+              },
+              "region": {
+                "type": "string",
+                "description": "The region in which to query the queues.",
+                "computed": true
+              },
+              "tags": {
+                "type": "string",
+                "description": "The tags to filter queues.",
+                "optional": true
+              },
+              "with_charge_info": {
+                "type": "bool",
+                "description": "Whether to return charge information.",
+                "optional": true
+              },
+              "with_privilege": {
+                "type": "bool",
+                "description": "Whether to return permission information.",
+                "optional": true
+              }
+            }
+          },
+          "product": {
+            "short": "DLI",
+            "name": "Data Lake Insight",
+            "catalog": "Analytics",
+            "name_cn": "数据湖探索",
+            "catalog_cn": "大数据"
+          }
+        }
+      }
+    }
+  }
+}

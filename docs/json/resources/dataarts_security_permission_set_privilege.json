@@ -10,42 +10,44 @@
                   "set",
                   "string"
                 ],
+                "description": "The list of granted permissions.",
                 "required": true
               },
               "cluster_id": {
                 "type": "string",
+                "description": "The cluster ID corresponding to the granted data source.",
                 "optional": true,
-                "computed": true,
-                "forcenew": true
+                "computed": true
               },
               "cluster_name": {
                 "type": "string",
-                "required": true,
-                "forcenew": true
+                "description": "The cluster name corresponding to the granted data source.",
+                "required": true
               },
               "column_name": {
                 "type": "string",
-                "optional": true,
-                "forcenew": true
+                "description": "The name of the column corresponding to the granted data source.",
+                "optional": true
               },
               "connection_id": {
                 "type": "string",
+                "description": "The data connection ID corresponding to the granted data source.",
                 "optional": true
               },
               "database_name": {
                 "type": "string",
-                "optional": true,
-                "forcenew": true
+                "description": "The name of the database corresponding to the granted data source.",
+                "optional": true
               },
               "database_url": {
                 "type": "string",
-                "optional": true,
-                "forcenew": true
+                "description": "The URL of the database corresponding to the granted data source.",
+                "optional": true
               },
               "datasource_type": {
                 "type": "string",
-                "required": true,
-                "forcenew": true
+                "description": "The type of the granted data source.",
+                "required": true
               },
               "id": {
                 "type": "string",
@@ -53,40 +55,43 @@
               },
               "permission_set_id": {
                 "type": "string",
-                "required": true,
-                "forcenew": true
+                "description": "The ID of the permission set to be granted.",
+                "required": true
               },
               "region": {
                 "type": "string",
+                "description": "The region in which to the permission set to be granted privilege is located.",
                 "computed": true
               },
               "schema_name": {
                 "type": "string",
-                "optional": true,
-                "forcenew": true
+                "description": "The schema name corresponding to the DWS data source.",
+                "optional": true
               },
               "status": {
                 "type": "string",
+                "description": "The current synchronization status of the resource.",
                 "computed": true
               },
               "sync_msg": {
                 "type": "string",
+                "description": "The status information of the resource.",
                 "computed": true
               },
               "table_name": {
                 "type": "string",
-                "optional": true,
-                "forcenew": true
+                "description": "The name of the data table corresponding to the granted data source.",
+                "optional": true
               },
               "type": {
                 "type": "string",
-                "required": true,
-                "forcenew": true
+                "description": "The type of the permission to be configured.",
+                "required": true
               },
               "workspace_id": {
                 "type": "string",
-                "required": true,
-                "forcenew": true
+                "description": "The ID of the workspace to which the permission set belongs.",
+                "required": true
               }
             }
           },

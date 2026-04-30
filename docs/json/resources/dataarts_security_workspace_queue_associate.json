@@ -1,0 +1,102 @@
+{
+  "provider_schemas": {
+    "huaweicloud/huaweicloud": {
+      "resource_schemas": {
+        "huaweicloud_dataarts_security_workspace_queue_associate": {
+          "block": {
+            "attributes": {
+              "cluster_id": {
+                "type": "string",
+                "description": "The ID of MRS cluster.",
+                "optional": true,
+                "computed": true
+              },
+              "cluster_name": {
+                "type": "string",
+                "description": "The cluster name.",
+                "computed": true
+              },
+              "connection_id": {
+                "type": "string",
+                "description": "The data connection ID.",
+                "required": true
+              },
+              "connection_name": {
+                "type": "string",
+                "description": "The data connection name.",
+                "computed": true
+              },
+              "create_user": {
+                "type": "string",
+                "description": "The user who added the queue to the workspace.",
+                "computed": true
+              },
+              "created_at": {
+                "type": "string",
+                "description": "The time when the queue was added to the workspace.",
+                "computed": true
+              },
+              "description": {
+                "type": "string",
+                "description": "The description of the queue resource assigned to the workspace.",
+                "optional": true,
+                "computed": true
+              },
+              "id": {
+                "type": "string",
+                "computed": true
+              },
+              "queue_attribute": {
+                "type": "number",
+                "description": "The attribute of the queue.",
+                "computed": true
+              },
+              "queue_name": {
+                "type": "string",
+                "description": "The queue name.",
+                "required": true
+              },
+              "queue_type": {
+                "type": "string",
+                "description": "The type of the queue.",
+                "computed": true
+              },
+              "region": {
+                "type": "string",
+                "description": "The region where the workspace queue associate is located.",
+                "computed": true
+              },
+              "source_type": {
+                "type": "string",
+                "description": "The queue resource service type. Currently, only MRS and DLI are supported.",
+                "required": true
+              },
+              "update_user": {
+                "type": "string",
+                "description": "The user who updated the queue resource under the workspace.",
+                "computed": true
+              },
+              "updated_at": {
+                "type": "string",
+                "description": "The time when the queue resource under the workspace was updated.",
+                "computed": true
+              },
+              "workspace_id": {
+                "type": "string",
+                "description": "The ID of the workspace to which the queue resource is assigned.",
+                "required": true
+              }
+            }
+          },
+          "product": {
+            "short": "DataArtsStudio",
+            "name": "DataArts Studio",
+            "catalog": "Analytics",
+            "name_cn": "数据治理中心",
+            "catalog_cn": "大数据"
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,85 @@
+{
+  "provider_schemas": {
+    "huaweicloud/huaweicloud": {
+      "resource_schemas": {
+        "huaweicloud_elb_domain_resolution": {
+          "block": {
+            "attributes": {
+              "id": {
+                "type": "string",
+                "computed": true
+              },
+              "ips": {
+                "type": [
+                  "list",
+                  [
+                    "object",
+                    {
+                      "created_at": "string",
+                      "domain_name": "string",
+                      "enable": "bool",
+                      "ip_address": "string",
+                      "type": "string",
+                      "updated_at": "string"
+                    }
+                  ]
+                ],
+                "computed": true
+              },
+              "loadbalancer_id": {
+                "type": "string",
+                "required": true
+              },
+              "private_dns_record_set_ttl": {
+                "type": "number",
+                "optional": true,
+                "computed": true
+              },
+              "private_dns_zone_name": {
+                "type": "string",
+                "optional": true,
+                "computed": true
+              },
+              "private_dns_zone_type": {
+                "type": "string",
+                "optional": true,
+                "computed": true
+              },
+              "private_domain_name_enable": {
+                "type": "bool",
+                "optional": true,
+                "computed": true
+              },
+              "public_dns_record_set_ttl": {
+                "type": "number",
+                "optional": true,
+                "computed": true
+              },
+              "public_dns_zone_name": {
+                "type": "string",
+                "optional": true,
+                "computed": true
+              },
+              "public_domain_name_enable": {
+                "type": "bool",
+                "optional": true,
+                "computed": true
+              },
+              "region": {
+                "type": "string",
+                "computed": true
+              }
+            }
+          },
+          "product": {
+            "short": "ELB",
+            "name": "Elastic Load Balance",
+            "catalog": "Networking",
+            "name_cn": "弹性负载均衡",
+            "catalog_cn": "网络"
+          }
+        }
+      }
+    }
+  }
+}

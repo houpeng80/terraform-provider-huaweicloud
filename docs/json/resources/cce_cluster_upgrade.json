@@ -17,6 +17,10 @@
                 "type": "string",
                 "computed": true
               },
+              "is_only_upgrade": {
+                "type": "string",
+                "optional": true
+              },
               "is_postcheck": {
                 "type": "bool",
                 "optional": true
@@ -79,6 +83,42 @@
                           },
                           "flavor_json": {
                             "type": "string",
+                            "optional": true
+                          }
+                        }
+                      },
+                      "nesting_mode": "list",
+                      "max_items": 1
+                    }
+                  }
+                },
+                "nesting_mode": "list"
+              },
+              "skipped_check_item_list": {
+                "block": {
+                  "attributes": {
+                    "name": {
+                      "type": "string",
+                      "optional": true
+                    }
+                  },
+                  "block_types": {
+                    "resource_selector": {
+                      "block": {
+                        "attributes": {
+                          "key": {
+                            "type": "string",
+                            "required": true
+                          },
+                          "operator": {
+                            "type": "string",
+                            "required": true
+                          },
+                          "values": {
+                            "type": [
+                              "list",
+                              "string"
+                            ],
                             "optional": true
                           }
                         }

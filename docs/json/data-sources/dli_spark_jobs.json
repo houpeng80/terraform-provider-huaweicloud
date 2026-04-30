@@ -1,0 +1,91 @@
+{
+  "provider_schemas": {
+    "huaweicloud/huaweicloud": {
+      "data_source_schemas": {
+        "huaweicloud_dli_spark_jobs": {
+          "block": {
+            "attributes": {
+              "cluster_name": {
+                "type": "string",
+                "description": "The DLI queue name of the spark job to be queried.",
+                "optional": true
+              },
+              "id": {
+                "type": "string",
+                "computed": true
+              },
+              "job_id": {
+                "type": "string",
+                "description": "The ID of the spark job to be queried.",
+                "optional": true
+              },
+              "job_name": {
+                "type": "string",
+                "description": "The name of the spark job to be queried.",
+                "optional": true
+              },
+              "jobs": {
+                "type": [
+                  "list",
+                  [
+                    "object",
+                    {
+                      "app_id": "string",
+                      "cluster_name": "string",
+                      "created_at": "string",
+                      "duration": "number",
+                      "id": "string",
+                      "image": "string",
+                      "kind": "string",
+                      "log": [
+                        "list",
+                        "string"
+                      ],
+                      "name": "string",
+                      "owner": "string",
+                      "proxy_user": "string",
+                      "queue": "string",
+                      "req_body": "string",
+                      "sc_type": "string",
+                      "state": "string",
+                      "updated_at": "string"
+                    }
+                  ]
+                ],
+                "description": "The list of spark jobs that matched filter parameters.",
+                "computed": true
+              },
+              "owner": {
+                "type": "string",
+                "description": "The owner of the spark job to be queried.",
+                "optional": true
+              },
+              "queue_name": {
+                "type": "string",
+                "description": "The queue name of the spark job to be queried.",
+                "optional": true
+              },
+              "region": {
+                "type": "string",
+                "description": "The region where the spark jobs are located.",
+                "computed": true
+              },
+              "state": {
+                "type": "string",
+                "description": "The state of the spark job to be queried.",
+                "optional": true
+              }
+            }
+          },
+          "product": {
+            "short": "DLI",
+            "name": "Data Lake Insight",
+            "catalog": "Analytics",
+            "name_cn": "数据湖探索",
+            "catalog_cn": "大数据"
+          }
+        }
+      }
+    }
+  }
+}

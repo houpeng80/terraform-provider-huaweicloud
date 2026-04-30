@@ -1,0 +1,77 @@
+{
+  "provider_schemas": {
+    "huaweicloud/huaweicloud": {
+      "data_source_schemas": {
+        "huaweicloud_rfs_execution_plan_items": {
+          "block": {
+            "attributes": {
+              "execution_plan_id": {
+                "type": "string",
+                "optional": true
+              },
+              "execution_plan_items": {
+                "type": [
+                  "list",
+                  [
+                    "object",
+                    {
+                      "action": "string",
+                      "action_reason": "string",
+                      "attributes": [
+                        "list",
+                        [
+                          "object",
+                          {
+                            "name": "string",
+                            "previous_value": "string",
+                            "target_value": "string"
+                          }
+                        ]
+                      ],
+                      "drifted": "bool",
+                      "imported": "bool",
+                      "index": "string",
+                      "mode": "string",
+                      "provider_name": "string",
+                      "resource_id": "string",
+                      "resource_name": "string",
+                      "resource_type": "string"
+                    }
+                  ]
+                ],
+                "computed": true
+              },
+              "execution_plan_name": {
+                "type": "string",
+                "required": true
+              },
+              "id": {
+                "type": "string",
+                "computed": true
+              },
+              "region": {
+                "type": "string",
+                "computed": true
+              },
+              "stack_id": {
+                "type": "string",
+                "optional": true
+              },
+              "stack_name": {
+                "type": "string",
+                "required": true
+              }
+            }
+          },
+          "product": {
+            "short": "RFS",
+            "name": "Resource Formation",
+            "catalog": "Management & Governance",
+            "name_cn": "资源编排服务",
+            "catalog_cn": "管理与监管"
+          }
+        }
+      }
+    }
+  }
+}
