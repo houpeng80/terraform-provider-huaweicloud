@@ -72,6 +72,8 @@ var openGaussInstanceNonUpdatableParams = []string{"availability_zone", "vpc_id"
 // @API GaussDB DELETE /v3/{project_id}/instances/{instance_id}/tag
 // @API GaussDB DELETE /v3/{project_id}/instances/{instance_id}
 // @API GaussDB PUT /v3/{project_id}/instances/{instance_id}/kms-tde/switch
+// @API GaussDB POST /v3/{project_id}/instances/{instance_id}/switch-replica
+// @API GaussDB POST /v3/{project_id}/instances/{instance_id}/switch-logger-replica
 // @API BSS GET /v2/orders/customer-orders/details/{order_id}
 // @API BSS POST /v2/orders/suscriptions/resources/query
 // @API BSS POST /v2/orders/subscriptions/resources/autorenew/{instance_id}
